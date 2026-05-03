@@ -288,7 +288,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 
 <!-- RIBBON -->
 <div class="ribbon">
-  <span class="ribbon-email">oliversipocz@gmail.com</span>
+  <span class="ribbon-email">oliverspizzabp@gmail.com</span>
   <div class="ribbon-social">
     <a href="https://www.instagram.com/oliverspizza_bp/" target="_blank" title="Instagram">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -308,6 +308,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <div class="nav-logo" onclick="go('home')" style="cursor:pointer">OLIVER'S PIZZA</div>
     <ul class="nav-links">
       <li><a onclick="go('home')" data-p="home" class="active">Kezdőlap</a></li>
+      <li><a onclick="go('pizzaink')" data-p="pizzaink">Pizzáink</a></li>
       <li><a onclick="go('galeria')" data-p="galeria">Galéria</a></li>
       <li><a onclick="go('szolg')" data-p="szolg">Ajánlatkérés</a></li>
       <li><a onclick="go('kontakt')" data-p="kontakt">Kontakt</a></li>
@@ -323,6 +324,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 <div class="mob" id="mob">
   <button class="mob-close" onclick="mobToggle()">✕</button>
   <a onclick="go('home');mobToggle()">Kezdőlap</a>
+  <a onclick="go('pizzaink');mobToggle()">Pizzáink</a>
   <a onclick="go('galeria');mobToggle()">Galéria</a>
   <a onclick="go('szolg');mobToggle()">Ajánlatkérés</a>
   <a onclick="go('kontakt');mobToggle()">Kontakt</a>
@@ -472,6 +474,77 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   </div>
 </div>
 
+<!-- ══════════ PIZZÁINK ══════════ -->
+<div class="page" id="page-pizzaink">
+  <div class="sec-green" style="padding:4rem 2rem 2rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <p class="lbl lbl-gold r">Étlapunk</p>
+      <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">PIZZÁINK</h2>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="ticker-inner">
+      MARGHERITA &nbsp;•&nbsp; MARINARA &nbsp;•&nbsp; DIAVOLA &nbsp;•&nbsp; TARTUFO &nbsp;•&nbsp; PROSCIUTTO &nbsp;•&nbsp; QUATTRO &nbsp;•&nbsp;
+      MARGHERITA &nbsp;•&nbsp; MARINARA &nbsp;•&nbsp; DIAVOLA &nbsp;•&nbsp; TARTUFO &nbsp;•&nbsp; PROSCIUTTO &nbsp;•&nbsp; QUATTRO &nbsp;•&nbsp;
+    </span>
+  </div>
+  <div class="sec-cream">
+    <div class="wrap">
+      <div class="split" style="gap:4rem;align-items:start">
+        <div>
+          <p class="lbl lbl-red r">Alapanyagok</p>
+          <h3 class="big-title r" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem">Minőségi olasz és magyar alapanyagok</h3>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">A legmagasabb olasz minőségű alapanyagokkal dolgozunk. Friss tészta, autentikus nápolyi technika, helyszínen sütve — minden rendezvényen.</p>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">Sonkáink, szalámiaink és más alapanyagaink szintén Nápolyból érkeznek. Minden pizzát friss, kézzel nyújtott tésztából készítünk.</p>
+          <h3 class="big-title r" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.8rem;margin-top:2rem">Extra feltétek, különleges kérések</h3>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">Kínálunk extra feltéteket is — szarvasgomba, prémium szalámi, friss zöldségek — hogy minden vendég megtalálja a kedvencét.</p>
+          <h3 class="big-title r" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.8rem">Speciális étrend</h3>
+          <p class="body-text muted r" style="margin-bottom:2rem">Rugalmasak vagyunk speciális étrendekkel: gluténmentes tészta és laktózmentes sajt is elérhető kérésre.</p>
+          <div class="r">
+            <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
+          </div>
+        </div>
+        <div>
+          <div class="pizza-list">
+            <div class="pizza-item r">
+              <div class="pizza-name">Margherita</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, bazsalikom, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Marinara</div>
+              <div class="pizza-ing">paradicsomszósz, fokhagyma, oregánó, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Diavola</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, csípős szalámi, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Tartufo</div>
+              <div class="pizza-ing">mozzarella, szarvasgomba, parmezán, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Prosciutto</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, pármai sonka, parmezán</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Quattro</div>
+              <div class="pizza-ing">mozzarella, gorgonzola, parmezán, ricotta</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Bufala</div>
+              <div class="pizza-ing">paradicsomszósz, bivalymozzarella, bazsalikom, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Calabrese</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, nduja, parmezán, olívaolaj</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════ GALÉRIA ══════════ -->
 <div class="page" id="page-galeria">
   <div class="sec-green" style="padding:4rem 2rem 2rem">
@@ -542,7 +615,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
             <h3>Elérhetőségek</h3>
             <div class="ki"><span>1204 Budapest, Tátra tér 5-8.</span></div>
             <div class="ki"><a href="tel:+36302077667">+36 30 207 7667</a></div>
-            <div class="ki"><a href="mailto:oliversipocz@gmail.com">oliversipocz@gmail.com</a></div>
+            <div class="ki"><a href="mailto:oliverspizzabp@gmail.com">oliverspizzabp@gmail.com</a></div>
           </div>
           <div class="k-block r d1">
             <h3>Közösségi média</h3>
@@ -579,7 +652,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <h2>ÁSZF</h2>
     <div class="legal-d">Utolsó módosítás: 2026. január 1.</div>
     <h3>1. A szolgáltató adatai</h3>
-    <p>Neve: Sipőcz Olivér | E-mail: oliversipocz@gmail.com | Székhely: 1204 Budapest, Tátra tér 5-8. | Adószám: [adószám]</p>
+    <p>Neve: Sipőcz Olivér | E-mail: oliverspizzabp@gmail.com | Székhely: 1204 Budapest, Tátra tér 5-8. | Adószám: [adószám]</p>
     <h3>2. Ajánlatkérés és megrendelés</h3>
     <p>A weboldalon keresztül ajánlatkérés nyújtható be. A Szolgáltató 24 munkaidős órán belül visszaigazol. A szerződés írásbeli megállapodással jön létre.</p>
     <h3>3. Díjak és fizetés</h3>
@@ -599,7 +672,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <h2>IMPRESSZUM</h2>
     <div class="legal-d">Utolsó módosítás: 2026. január 1.</div>
     <h3>A weboldal üzemeltetője</h3>
-    <p>Sipőcz Olivér egyéni vállalkozó | 1204 Budapest, Tátra tér 5-8. | oliversipocz@gmail.com | Adószám: [adószám]</p>
+    <p>Sipőcz Olivér egyéni vállalkozó | 1204 Budapest, Tátra tér 5-8. | oliverspizzabp@gmail.com | Adószám: [adószám]</p>
     <h3>Adatkezelési tájékoztató</h3>
     <p>Adatkezelő: Sipőcz Olivér. Jogalap: érintett hozzájárulása (GDPR 6. cikk (1) a) pont).</p>
     <h3>Kezelt adatok</h3>
@@ -607,7 +680,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <h3>Cél és megőrzési idő</h3>
     <p>Ajánlatkérés megválaszolása, kapcsolattartás. Harmadik félnek nem adjuk át. Megőrzési idő: 1 év.</p>
     <h3>Érintetti jogok</h3>
-    <p>Kérés: oliversipocz@gmail.com. Panasz: NAIH (naih.hu).</p>
+    <p>Kérés: oliverspizzabp@gmail.com. Panasz: NAIH (naih.hu).</p>
     <h3>Sütik</h3>
     <p>Ez a weboldal nem használ nyomkövetési sütiket.</p>
   </div>
@@ -644,7 +717,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       <a onclick="go('aszf')">ÁSZF</a>
       <a onclick="go('impresszum')">Impresszum & Adatkezelés</a>
       <a onclick="go('kontakt')">Kontakt</a>
-      <a href="mailto:oliversipocz@gmail.com">oliversipocz@gmail.com</a>
+      <a href="mailto:oliverspizzabp@gmail.com">oliverspizzabp@gmail.com</a>
     </div>
     <p class="ft-copy">© 2026 Oliver's Pizza Budapest — Minden jog fenntartva.</p>
   </div>
