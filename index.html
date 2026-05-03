@@ -184,6 +184,14 @@ nav{
   color:rgba(255,255,255,.35);font-size:.72rem;letter-spacing:.12em;text-align:center;padding:1.5rem;line-height:1.7}
 
 
+/* ── PIZZAINK ── */
+.pizza-list{display:flex;flex-direction:column}
+.pizza-item{padding:1.1rem 0;border-bottom:1px solid var(--cream2)}
+.pizza-item:first-child{border-top:1px solid var(--cream2)}
+.pizza-name{font-family:var(--display);font-size:clamp(2.8rem,5vw,4.2rem);letter-spacing:.02em;line-height:1;color:var(--text);margin-bottom:.35rem}
+.pizza-name span{color:var(--red)}
+.pizza-ing{font-size:.8rem;color:var(--muted);letter-spacing:.05em;line-height:1.5}
+
 /* ── KONTAKT ── */
 .k-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .k-block{margin-bottom:2rem}
@@ -389,6 +397,52 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
         <div class="r d2" style="text-align:center;padding:2rem 1.5rem;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,.06)">
                     <h3 style="font-family:var(--display);font-size:1.5rem;letter-spacing:.06em;color:var(--green);margin-bottom:.5rem">FELEJTHETETLEN ÉLMÉNY</h3>
           <p style="color:var(--muted);font-size:.9rem">Esküvőtől céges rendezvényig — minden eseményt különlegessé teszünk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIZZAINK -->
+  <div class="sec-cream">
+    <div class="wrap">
+      <div class="split" style="gap:4rem">
+        <div>
+          <p class="lbl lbl-red r">Étlapunk</p>
+          <h2 class="big-title r">MINŐSÉGI<br/>ALAPANYAGOK</h2>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">A legmagasabb olasz minőségű alapanyagokkal dolgozunk. Autentikus nápolyi technikával, friss tésztából, helyszínen sütve.</p>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">Kínálunk extra feltéteket is — szarvasgomba, prémium szalámi, friss zöldségek — hogy minden vendég megtalálja a kedvencét.</p>
+          <p class="body-text muted r" style="margin-bottom:2rem">Rugalmasak vagyunk speciális étrendekkel: gluténmentes tészta és laktózmentes sajt is elérhető kérésre.</p>
+          <div class="r">
+            <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
+          </div>
+        </div>
+        <div>
+          <div class="pizza-list">
+            <div class="pizza-item r">
+              <div class="pizza-name">Mar<span>g</span>herita</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, bazsalikom, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Mari<span>n</span>ara</div>
+              <div class="pizza-ing">paradicsomszósz, fokhagyma, oregánó, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">D<span>i</span>avola</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, csípős szalámi, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Tar<span>t</span>ufo</div>
+              <div class="pizza-ing">mozzarella, szarvasgomba, parmezán, olívaolaj</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Pro<span>s</span>ciutto</div>
+              <div class="pizza-ing">paradicsomszósz, mozzarella, pármai sonka, parmezán</div>
+            </div>
+            <div class="pizza-item r">
+              <div class="pizza-name">Quat<span>t</span>ro</div>
+              <div class="pizza-ing">mozzarella, gorgonzola, parmezán, ricotta</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
