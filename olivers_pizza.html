@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Oliver's Pizza – Pizza Napoletana Budapest</title>
+<meta name="description" content="Autentikus nápolyi pizza catering Budapesten. Kérj ajánlatot esküvőre, céges rendezvényre, születésnapra!"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green:#1b3a2d;
+  --green2:#122a1f;
+  --green3:#0e2018;
+  --cream:#f0ebe0;
+  --cream2:#e4ddd0;
+  --red:#d63b2a;
+  --red2:#e84c3b;
+  --text:#1a1a18;
+  --muted:#6b6456;
+  --display:'Bebas Neue',Impact,sans-serif;
+  --body:'Lato',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:var(--body);font-weight:400;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;cursor:pointer;color:inherit}
+
+/* ── TOP RIBBON ── */
+.ribbon{
+  background:var(--green);color:rgba(255,255,255,.8);
+  padding:.35rem 2rem;display:flex;justify-content:space-between;align-items:center;
+  font-size:.78rem;letter-spacing:.04em;
+}
+.ribbon-social{display:flex;gap:1rem}
+.ribbon-social a{color:rgba(255,255,255,.7);font-size:.95rem;transition:color .2s}
+.ribbon-social a:hover{color:#fff}
+
+/* ── NAV ── */
+nav{
+  background:var(--cream);border-bottom:1px solid var(--cream2);
+  position:sticky;top:0;z-index:200;
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;
+  padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;
+}
+.nav-logo{
+  font-family:var(--display);font-size:2rem;letter-spacing:.06em;
+  color:var(--green);line-height:1;
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text);transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--red)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+.burger span{width:24px;height:2px;background:var(--text);display:block}
+.mob{
+  display:none;position:fixed;inset:0;top:0;padding-top:80px;
+  background:var(--green);z-index:190;
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+}
+.mob.open{display:flex}
+.mob a{font-family:var(--display);font-size:2.2rem;color:var(--cream);letter-spacing:.08em}
+.mob a:hover{color:var(--red)}
+.mob-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--cream);font-size:2rem;cursor:pointer}
+
+/* ── PAGES ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ══════════ HERO ══════════ */
+.hero{
+  position:relative;min-height:80vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+  background:var(--green3);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  /* Oliver's képei ide jönnek majd – placeholder most a zöld */
+  background:linear-gradient(160deg,#0e2018 0%,#1b3a2d 100%);
+  opacity:1;
+}
+/* Ha kép lesz: */
+/* .hero-bg{background:url('KEPURL.jpg') center/cover no-repeat;} */
+/* .hero-overlay{position:absolute;inset:0;background:rgba(14,32,24,.65)} */
+.hero-content{position:relative;z-index:2;padding:5rem 2rem}
+.hero-eyebrow{
+  font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-bottom:1rem;
+}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(5rem,14vw,11rem);
+  line-height:.9;color:#fff;letter-spacing:.04em;
+  margin-bottom:.2rem;
+}
+.hero-sub{
+  font-family:var(--display);font-size:clamp(1.4rem,3.5vw,2.6rem);
+  color:rgba(255,255,255,.6);letter-spacing:.12em;margin-bottom:2rem;
+}
+.hero-desc{
+  color:rgba(255,255,255,.75);font-size:1rem;max-width:46ch;
+  margin:0 auto 2.5rem;line-height:1.8;
+}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ── BUTTONS ── */
+.btn{
+  padding:.8rem 2rem;border-radius:50px;font-size:.82rem;
+  font-weight:700;font-family:var(--body);letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:all .22s;display:inline-block;border:2px solid transparent;
+}
+.btn-red{background:var(--red);color:#fff;border-color:var(--red)}
+.btn-red:hover{background:var(--red2);border-color:var(--red2)}
+.btn-outline-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-outline-d{background:transparent;color:var(--text);border-color:var(--text)}
+.btn-outline-d:hover{background:var(--text);color:var(--cream)}
+.btn-green{background:var(--green);color:var(--cream);border-color:var(--green)}
+.btn-green:hover{background:var(--green2)}
+
+/* ── TICKER ── */
+.ticker{
+  background:var(--red);overflow:hidden;
+  padding:.6rem 0;white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-block;animation:tick 22s linear infinite;
+  font-family:var(--display);font-size:1.1rem;letter-spacing:.15em;color:#fff;
+}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+.sec-cream{background:var(--cream)}
+.sec-green{background:var(--green);color:var(--cream)}
+.sec-green .muted{color:rgba(240,235,224,.6)}
+.wrap{max-width:1100px;margin:0 auto;padding:5rem 2rem}
+
+.lbl{
+  font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  margin-bottom:.8rem;
+}
+.lbl-red{color:var(--red)}
+.lbl-gold{color:rgba(240,235,224,.5)}
+.big-title{
+  font-family:var(--display);
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  letter-spacing:.04em;line-height:1;margin-bottom:1.5rem;
+}
+.big-title.red{color:var(--red)}
+.body-text{font-size:.97rem;line-height:1.9;max-width:55ch}
+.body-text.muted{color:var(--muted)}
+.body-text.muted-w{color:rgba(240,235,224,.7)}
+
+/* ── SPLIT LAYOUT ── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.split.rev{direction:rtl}
+.split.rev > *{direction:ltr}
+.img-box{
+  aspect-ratio:4/3;overflow:hidden;border-radius:4px;
+  background:var(--green2);display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.img-box img{width:100%;height:100%;object-fit:cover;display:block}
+.img-box-ph{text-align:center;color:rgba(255,255,255,.4);font-size:.75rem;letter-spacing:.1em;padding:2rem}
+
+/* ── GALÉRIA ── */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.g-item{overflow:hidden;background:var(--green2);position:relative}
+.g-item.tall{grid-row:span 2}
+.g-item.wide{grid-column:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.g-item:hover img{transform:scale(1.04)}
+.g-item:not(.tall){aspect-ratio:4/3}
+.g-item.tall{aspect-ratio:unset;min-height:500px}
+.g-ph{display:flex;align-items:center;justify-content:center;min-height:220px;
+  color:rgba(255,255,255,.35);font-size:.72rem;letter-spacing:.12em;text-align:center;padding:1.5rem;line-height:1.7}
+
+}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.field input,.field select,.field textarea{
+  width:100%;background:#fff;border:2px solid var(--cream2);
+  color:var(--text);padding:.8rem 1.1rem;font-size:.95rem;font-family:var(--body);
+  border-radius:8px;outline:none;transition:border-color .2s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green)}
+.field select{cursor:pointer}
+.field textarea{resize:vertical;min-height:120px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fmsg{display:none;padding:1rem 1.2rem;border-radius:8px;font-size:.9rem;margin-bottom:1.2rem;font-weight:700}
+.fmsg.ok{background:#d4edda;color:#155724;border:1px solid #c3e6cb;display:block}
+.fmsg.err{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;display:block}
+.fnote{font-size:.72rem;color:var(--muted);margin-top:.8rem;line-height:1.7}
+.fnote a{color:var(--green);text-decoration:underline}
+.spin{display:none;border:2px solid var(--cream2);border-top:2px solid var(--green);border-radius:50%;width:14px;height:14px;animation:sp .7s linear infinite;vertical-align:middle;margin-left:.6rem}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ── KONTAKT ── */
+.k-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.k-block{margin-bottom:2rem}
+.k-block h3{font-family:var(--display);font-size:1.6rem;letter-spacing:.06em;color:var(--cream);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.ki{display:flex;gap:.9rem;margin-bottom:.9rem;font-size:.95rem;color:rgba(240,235,224,.8)}
+.ki a:hover{color:#fff}
+.soc{display:flex;align-items:center;gap:1rem;padding:.75rem 1.2rem;border:1px solid rgba(255,255,255,.15);border-radius:50px;transition:all .2s;margin-bottom:.6rem;font-size:.88rem;color:rgba(240,235,224,.8)}
+.soc:hover{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06)}
+.mapbox{aspect-ratio:4/3;background:var(--green2);border:1px solid rgba(255,255,255,.1);border-radius:4px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:.8rem;letter-spacing:.1em;text-align:center;padding:1rem}
+
+/* ── WEBSHOP ── */
+.ws{text-align:center;min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;background:var(--green)}
+.ws-big{font-family:var(--display);font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.08);line-height:1;margin-bottom:1.5rem}
+
+/* ── LEGAL ── */
+.legal{max-width:760px;margin:0 auto;padding:5rem 2rem}
+.legal h2{font-family:var(--display);font-size:3rem;letter-spacing:.05em;color:var(--green);margin-bottom:.3rem}
+.legal-d{font-size:.75rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3rem}
+.legal h3{color:var(--text);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin:2rem 0 .5rem;padding-top:2rem;border-top:1px solid var(--cream2)}
+.legal p,.legal li{color:var(--muted);font-size:.92rem;line-height:1.85;margin-bottom:.4rem}
+.legal ul{padding-left:1.5rem}
+
+/* ── FOOTER ── */
+footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
+.ft{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.ft-logo{font-family:var(--display);font-size:2.5rem;color:var(--cream);letter-spacing:.08em}
+.ft-sub{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,235,224,.4)}
+.ft-sep{width:50px;height:1px;background:rgba(255,255,255,.1)}
+.ft-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+.ft-links a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
+.ft-links a:hover{color:var(--cream)}
+.ft-copy{font-size:.74rem}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.r.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:860px){
+  .split,.k-grid,.fg{grid-template-columns:1fr}
+  .split.rev{direction:ltr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .g-item.tall,.g-item.wide{grid-column:auto;grid-row:auto;min-height:unset;aspect-ratio:4/3}
+  .nav-links{display:none}
+  .burger{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <span>✉ oliversipocz@gmail.com</span>
+  <div class="ribbon-social">
+    <a href="https://instagram.com/" target="_blank" title="Instagram">📸</a>
+    <a href="https://tiktok.com/" target="_blank" title="TikTok">🎵</a>
+    <a href="https://facebook.com/" target="_blank" title="Facebook">👍</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="go('home')" style="cursor:pointer">OLIVER'S PIZZA</div>
+    <ul class="nav-links">
+      <li><a onclick="go('home')" data-p="home" class="active">Kezdőlap</a></li>
+      <li><a onclick="go('galeria')" data-p="galeria">Galéria</a></li>
+      <li><a onclick="go('szolg')" data-p="szolg">Ajánlatkérés</a></li>
+      <li><a onclick="go('kontakt')" data-p="kontakt">Kontakt</a></li>
+      <li><a onclick="go('webshop')" data-p="webshop">Webshop</a></li>
+    </ul>
+    <button class="burger" onclick="mobToggle()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="mobToggle()">✕</button>
+  <a onclick="go('home');mobToggle()">Kezdőlap</a>
+  <a onclick="go('galeria');mobToggle()">Galéria</a>
+  <a onclick="go('szolg');mobToggle()">Ajánlatkérés</a>
+  <a onclick="go('kontakt');mobToggle()">Kontakt</a>
+  <a onclick="go('webshop');mobToggle()">Webshop</a>
+  <a onclick="go('aszf');mobToggle()" style="font-size:1.2rem;color:rgba(240,235,224,.45)">ÁSZF</a>
+  <a onclick="go('impresszum');mobToggle()" style="font-size:1.2rem;color:rgba(240,235,224,.45)">Impresszum</a>
+</div>
+
+<!-- ══════════ KEZDŐLAP ══════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <!-- Ha van hátterképed: add hozzá a .hero-bg stílushoz: background:url('KEP.jpg') center/cover; -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">Pizza Napoletana · Budapest</p>
+      <h1>OLIVER'S<br/>PIZZA</h1>
+      <p class="hero-sub">PIZZA NAPOLETANA</p>
+      <p class="hero-desc">Nápolyi stílusú pizza a Te rendezvényedre.<br/>Friss tészta, minőségi alapanyagok, felejthetetlen élmény.</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" onclick="go('szolg')">Kérj ajánlatot 24 órán belül! 🍕</a>
+        <a class="btn btn-outline-w" onclick="go('galeria')">Galéria</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <span class="ticker-inner">
+      PIZZA NAPOLETANA &nbsp;•&nbsp; CATERING BUDAPESTEN &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp; FESZTIVÁL &nbsp;•&nbsp;
+      PIZZA NAPOLETANA &nbsp;•&nbsp; CATERING BUDAPESTEN &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp; FESZTIVÁL &nbsp;•&nbsp;
+    </span>
+  </div>
+
+  <!-- INTRO SPLIT -->
+  <div class="sec-green">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="lbl lbl-gold r">Miért Oliver's?</p>
+          <h2 class="big-title r" style="color:#fff">FRISS TÉSZTA.<br/>MINŐSÉG.<br/>ÉLMÉNY.</h2>
+          <p class="body-text muted-w r" style="margin-bottom:2rem">Nápolyi stílusú pizza a Te rendezvényedre. Friss tészta, minőségi alapanyagok, felejthetetlen élmény.</p>
+          <div class="r">
+            <a class="btn btn-red" onclick="go('szolg')">Kérj ajánlatot! 🍕</a>
+          </div>
+        </div>
+        <div class="r d1">
+          <!-- KÉP HELYE: Kép 4 – Oliver pizzákat szel rendezvényen -->
+          <div class="img-box">
+            <img src="images/kep4.jpg" alt="Oliver pizza rendezvényen"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 PILLÉR -->
+  <div class="sec-cream">
+    <div class="wrap">
+      <p class="lbl lbl-red r" style="text-align:center;justify-content:center">Amit kínálok</p>
+      <h2 class="big-title r" style="text-align:center;margin-bottom:3rem">MIT KAPSZ? 🍕</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem">
+        <div class="r" style="text-align:center;padding:2rem 1.5rem;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,.06)">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🔥</div>
+          <h3 style="font-family:var(--display);font-size:1.5rem;letter-spacing:.06em;color:var(--green);margin-bottom:.5rem">FRISS TÉSZTA</h3>
+          <p style="color:var(--muted);font-size:.9rem">Minden pizzát friss, kézzel nyújtott tésztából készítünk, helyszínen.</p>
+        </div>
+        <div class="r d1" style="text-align:center;padding:2rem 1.5rem;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,.06)">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🌿</div>
+          <h3 style="font-family:var(--display);font-size:1.5rem;letter-spacing:.06em;color:var(--green);margin-bottom:.5rem">MINŐSÉGI ALAPANYAGOK</h3>
+          <p style="color:var(--muted);font-size:.9rem">Válogatott olasz és hazai prémium alapanyagok, kompromisszum nélkül.</p>
+        </div>
+        <div class="r d2" style="text-align:center;padding:2rem 1.5rem;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,.06)">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🎉</div>
+          <h3 style="font-family:var(--display);font-size:1.5rem;letter-spacing:.06em;color:var(--green);margin-bottom:.5rem">FELEJTHETETLEN ÉLMÉNY</h3>
+          <p style="color:var(--muted);font-size:.9rem">Esküvőtől céges rendezvényig — minden eseményt különlegessé teszünk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINI GALÉRIA PREVIEW -->
+  <div class="sec-green">
+    <div class="wrap">
+      <p class="lbl lbl-gold r">Galéria</p>
+      <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">A PIZZA,<br/>AHOGY LENNIE KELL.</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:2rem">
+        <div class="g-item r"><img src="images/kep5.jpg" alt="Margherita pizza"/></div>
+        <div class="g-item r d1"><img src="images/kep3.jpg" alt="Fehér pizza"/></div>
+        <div class="g-item r d2"><img src="images/kep1.jpg" alt="Pizza kemencéből"/></div>
+      </div>
+      <div class="r">
+        <a class="btn btn-outline-w" onclick="go('galeria')">Összes kép →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div style="background:var(--red);text-align:center;padding:5rem 2rem">
+    <h2 class="r" style="font-family:var(--display);font-size:clamp(2.5rem,6vw,5rem);color:#fff;letter-spacing:.04em;margin-bottom:.7rem">LEGYEN EMLÉKEZETES! 🍕</h2>
+    <p class="r" style="color:rgba(255,255,255,.8);margin-bottom:2rem;font-size:1rem">Esküvőre, születésnapra, céges eseményre — 24 órán belül válaszolunk!</p>
+    <a class="btn r" onclick="go('szolg')" style="background:#fff;color:var(--red);border:2px solid #fff;font-size:.85rem">KÉRJ AJÁNLATOT!</a>
+  </div>
+</div>
+
+<!-- ══════════ GALÉRIA ══════════ -->
+<div class="page" id="page-galeria">
+  <div class="sec-green" style="padding:4rem 2rem 2rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <p class="lbl lbl-gold r">Képek</p>
+      <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">GALÉRIA</h2>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="ticker-inner">
+      PIZZA NAPOLETANA &nbsp;•&nbsp; AUTENTIKUS &nbsp;•&nbsp; BUDAPEST &nbsp;•&nbsp; CATERING &nbsp;•&nbsp; RENDEZVÉNY &nbsp;•&nbsp; MINŐSÉG &nbsp;•&nbsp;
+      PIZZA NAPOLETANA &nbsp;•&nbsp; AUTENTIKUS &nbsp;•&nbsp; BUDAPEST &nbsp;•&nbsp; CATERING &nbsp;•&nbsp; RENDEZVÉNY &nbsp;•&nbsp; MINŐSÉG &nbsp;•&nbsp;
+    </span>
+  </div>
+  <div class="sec-green" style="padding:2rem">
+    <div class="gallery" style="max-width:1100px;margin:0 auto">
+      <div class="g-item tall r"><img src="images/kep1.jpg" alt="Pizza kemencéből"/></div>
+      <div class="g-item r"><img src="images/kep5.jpg" alt="Margherita pizza"/></div>
+      <div class="g-item r d1"><img src="images/kep3.jpg" alt="Fehér pizza"/></div>
+      <div class="g-item wide r"><img src="images/kep4.jpg" alt="Oliver rendezvényen"/></div>
+      <div class="g-item r d1"><img src="images/kep2.jpg" alt="Oliver"/></div>
+      <div class="g-item r d2"><img src="images/kep6.jpg" alt="Oliver kemencénél"/></div>
+    </div>
+    <div style="text-align:center;padding:3rem 2rem">
+      <a class="btn btn-red r" onclick="go('szolg')">Kérj ajánlatot! 🍕</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ AJÁNLATKÉRÉS ══════════ -->
+<div class="page" id="page-szolg">
+  <!-- Hero sáv -->
+  <div class="sec-green" style="padding:4rem 2rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <p class="lbl lbl-gold r">Ajánlatkérés</p>
+      <h2 class="big-title r" style="color:#fff">KÉRJ AJÁNLATOT! 🍕</h2>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="ticker-inner">
+      KÉRJ AJÁNLATOT &nbsp;•&nbsp; 24 ÓRÁN BELÜL VÁLASZOLOK &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp;
+      KÉRJ AJÁNLATOT &nbsp;•&nbsp; 24 ÓRÁN BELÜL VÁLASZOLOK &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp;
+    </span>
+  </div>
+
+  <div class="sec-cream">
+    <div class="wrap">
+
+      <!-- A/B TAB SWITCHER -->
+      <div class="r" style="display:flex;gap:.5rem;margin-bottom:3rem;background:var(--cream2);border-radius:50px;padding:.3rem;max-width:420px">
+        <button onclick="switchAB('a')" id="tab-a"
+          style="flex:1;padding:.7rem 1.5rem;border-radius:50px;border:none;cursor:pointer;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;background:var(--green);color:var(--cream)">
+          A — Űrlap
+        </button>
+        <button onclick="switchAB('b')" id="tab-b"
+          style="flex:1;padding:.7rem 1.5rem;border-radius:50px;border:none;cursor:pointer;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;background:transparent;color:var(--muted)">
+          B — Email link
+        </button>
+      </div>
+
+      <!-- ── A: FORM ── -->
+      <div id="panel-a">
+        <div class="form-inner" style="margin:0">
+          <p style="color:var(--muted);margin-bottom:2rem;font-size:.97rem" class="r">Töltsd ki az alábbi űrlapot, és <strong style="color:var(--text)">24 órán belül</strong> válaszolok. 🍕</p>
+          <div class="fmsg" id="fm"></div>
+          <div class="fg">
+            <div class="field r"><label>Név *</label><input type="text" id="f_nev" placeholder="Kovács János"/></div>
+            <div class="field r d1"><label>Email *</label><input type="email" id="f_email" placeholder="email@pelda.hu"/></div>
+          </div>
+          <div class="field r">
+            <label>Esemény típusa *</label>
+            <select id="f_esem">
+              <option value="">Válassz...</option>
+              <option>Esküvő</option>
+              <option>Céges rendezvény</option>
+              <option>Születésnap</option>
+              <option>Fesztivál / Közösségi esemény</option>
+              <option>Egyéb</option>
+            </select>
+          </div>
+          <div class="fg">
+            <div class="field r"><label>Időpont *</label><input type="date" id="f_ido"/></div>
+            <div class="field r d1"><label>Hosszúság</label><input type="text" id="f_hossz" placeholder="pl. 3 óra"/></div>
+          </div>
+          <div class="field r"><label>Pizzák darabszáma</label><input type="number" id="f_db" placeholder="pl. 30 db"/></div>
+          <div class="field r"><label>Megjegyzés</label><textarea id="f_meg" placeholder="Ide írhatod az esemény részleteit, kérdéseidet..."></textarea></div>
+          <div class="r">
+            <button class="btn btn-green" onclick="kuldForm()" id="kuldBtn" style="display:inline-flex;align-items:center;gap:.6rem;border-radius:50px">
+              Ajánlatot kérek! 🍕 <span class="spin" id="sp"></span>
+            </button>
+            <p class="fnote">Az adataidat kizárólag az ajánlatkérés megválaszolásához használjuk.
+              Az elküldéssel elfogadod <a onclick="go('aszf')">az ÁSZF-et</a> és
+              <a onclick="go('impresszum')">az Adatkezelési tájékoztatót</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── B: EMAIL LINK ── -->
+      <div id="panel-b" style="display:none">
+        <div style="max-width:560px">
+          <p style="color:var(--muted);margin-bottom:2.5rem;font-size:.97rem" class="r">
+            Kattints az alábbi gombra — megnyílik a Gmail, és egy előre kitöltött sablonnal egyből írhatod az üzeneted. 24 órán belül válaszolok! 🍕
+          </p>
+
+          <!-- Nagy email CTA -->
+          <a class="r" href="https://mail.google.com/mail/?view=cm&to=oliversipocz@gmail.com&su=Ajánlatkérés%20–%20Oliver's%20Pizza&body=Szia%20Oliver!%0A%0ANév%3A%20%0AEsemény%20típusa%3A%20(esküvő%2C%20születésnap%2C%20céges...)%0AIdőpont%3A%20%0AHosszúság%3A%20%0APizzák%20darabszáma%3A%20%0A%0AMegjegyzés%3A%20" target="_blank"
+            style="display:flex;align-items:center;gap:1.5rem;background:var(--green);color:var(--cream);padding:2rem 2.5rem;border-radius:16px;transition:background .2s;margin-bottom:1rem">
+            <span style="font-size:2.5rem">📧</span>
+            <div>
+              <div style="font-family:var(--display);font-size:1.8rem;letter-spacing:.06em;line-height:1">AJÁNLATOT KÉREK!</div>
+              <div style="font-size:.85rem;opacity:.7;margin-top:.2rem">oliversipocz@gmail.com</div>
+            </div>
+            <span style="margin-left:auto;font-size:1.5rem;opacity:.5">→</span>
+          </a>
+
+          <p style="color:var(--muted);font-size:.8rem;margin-top:1rem">
+            💡 Megnyílik a Gmail / levelező alkalmazásod egy előre kitöltött sablonnal — csak töltsd ki és küld el!
+          </p>
+
+          <!-- Vagy közvetlen elérhetőség -->
+          <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--cream2)">
+            <p style="font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Vagy direktben:</p>
+            <div style="display:flex;flex-direction:column;gap:.6rem">
+              <a href="mailto:oliversipocz@gmail.com" style="display:flex;align-items:center;gap:.8rem;color:var(--text);font-size:.95rem">
+                ✉ oliversipocz@gmail.com
+              </a>
+              <a href="tel:+36301234567" style="display:flex;align-items:center;gap:.8rem;color:var(--text);font-size:.95rem">
+                📞 +36 [telefonszám]
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ KONTAKT ══════════ -->
+<div class="page" id="page-kontakt">
+  <div class="sec-green">
+    <div class="wrap">
+      <p class="lbl lbl-gold r">Elérhetőség</p>
+      <h2 class="big-title r" style="color:#fff;margin-bottom:3rem">KONTAKT</h2>
+      <div class="k-grid">
+        <div>
+          <div class="k-block r">
+            <h3>Elérhetőségek</h3>
+            <div class="ki">📍 <span>Budapest, [Cím — Oliver tölti ki]</span></div>
+            <div class="ki">📞 <a href="tel:+36301234567">+36 [telefonszám]</a></div>
+            <div class="ki">✉ <a href="mailto:oliversipocz@gmail.com">oliversipocz@gmail.com</a></div>
+          </div>
+          <div class="k-block r d1">
+            <h3>Közösségi média</h3>
+            <a href="https://instagram.com/" target="_blank" class="soc">📸 &nbsp; Instagram — @oliverspizza</a>
+            <a href="https://facebook.com/" target="_blank" class="soc">👍 &nbsp; Facebook — Oliver's Pizza</a>
+            <a href="https://tiktok.com/" target="_blank" class="soc">🎵 &nbsp; TikTok — @oliverspizza</a>
+          </div>
+        </div>
+        <div class="r d1">
+          <div class="mapbox">[Google Maps embed kerül ide]<br/><small style="display:block;margin-top:.4rem">Budapest, [cím]</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ WEBSHOP ══════════ -->
+<div class="page" id="page-webshop">
+  <div class="ws">
+    <div class="ws-big">SOON</div>
+    <p class="lbl lbl-gold" style="justify-content:center">Webshop</p>
+    <h2 style="font-family:var(--display);font-size:clamp(2.5rem,6vw,4rem);color:var(--cream);letter-spacing:.06em;margin:.5rem 0 1rem">A BOLT ÉPÜL</h2>
+    <p style="color:rgba(240,235,224,.6);max-width:36ch;text-align:center;margin-bottom:2.5rem">Hamarosan elérhető lesz a saját Oliver's Pizza merch boltja!</p>
+    <a class="btn btn-red" onclick="go('kontakt')">Kapcsolatfelvétel</a>
+  </div>
+</div>
+
+<!-- ══════════ ÁSZF ══════════ -->
+<div class="page" id="page-aszf">
+  <div class="legal">
+    <h2>ÁSZF</h2>
+    <div class="legal-d">Utolsó módosítás: 2026. január 1.</div>
+    <h3>1. A szolgáltató adatai</h3>
+    <p>Neve: Sipőcz Olivér | E-mail: oliversipocz@gmail.com | Székhely: Budapest, [cím] | Adószám: [adószám]</p>
+    <h3>2. Ajánlatkérés és megrendelés</h3>
+    <p>A weboldalon keresztül ajánlatkérés nyújtható be. A Szolgáltató 24 munkaidős órán belül visszaigazol. A szerződés írásbeli megállapodással jön létre.</p>
+    <h3>3. Díjak és fizetés</h3>
+    <p>Az ajánlatban szereplő díjak nettó árak. Foglaló: az összdíj [X]%-a, [X] napon belül fizetendő.</p>
+    <h3>4. Lemondás</h3>
+    <p>30+ nappal korábban: foglaló visszajár. 14 napon belül: foglaló elvész. 7 napon belül: összdíj 50%-a kerül számlázásra.</p>
+    <h3>5. Adatkezelés</h3>
+    <p>Kizárólag a kapcsolattartáshoz és a szerződéses kötelezettségek teljesítéséhez. Részletek az Impresszumban.</p>
+    <h3>6. Egyéb</h3>
+    <p>Magyar jog az irányadó. Az ÁSZF módosítását a weboldalon közzétesszük.</p>
+  </div>
+</div>
+
+<!-- ══════════ IMPRESSZUM ══════════ -->
+<div class="page" id="page-impresszum">
+  <div class="legal">
+    <h2>IMPRESSZUM</h2>
+    <div class="legal-d">Utolsó módosítás: 2026. január 1.</div>
+    <h3>A weboldal üzemeltetője</h3>
+    <p>Sipőcz Olivér egyéni vállalkozó | Budapest, [cím] | oliversipocz@gmail.com | Adószám: [adószám]</p>
+    <h3>Adatkezelési tájékoztató</h3>
+    <p>Adatkezelő: Sipőcz Olivér. Jogalap: érintett hozzájárulása (GDPR 6. cikk (1) a) pont).</p>
+    <h3>Kezelt adatok</h3>
+    <ul><li>Név, e-mail cím</li><li>Esemény adatai</li><li>Egyéb megadott információk</li></ul>
+    <h3>Cél és megőrzési idő</h3>
+    <p>Ajánlatkérés megválaszolása, kapcsolattartás. Harmadik félnek nem adjuk át. Megőrzési idő: 1 év.</p>
+    <h3>Érintetti jogok</h3>
+    <p>Kérés: oliversipocz@gmail.com. Panasz: NAIH (naih.hu).</p>
+    <h3>Sütik</h3>
+    <p>Ez a weboldal nem használ nyomkövetési sütiket.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-logo">OLIVER'S PIZZA</div>
+    <div class="ft-sub">Pizza Napoletana · Budapest</div>
+    <div class="ft-sep"></div>
+    <div class="ft-links">
+      <a onclick="go('aszf')">ÁSZF</a>
+      <a onclick="go('impresszum')">Impresszum & Adatkezelés</a>
+      <a onclick="go('kontakt')">Kontakt</a>
+      <a href="mailto:oliversipocz@gmail.com">oliversipocz@gmail.com</a>
+    </div>
+    <p class="ft-copy">© 2026 Oliver's Pizza Budapest — Minden jog fenntartva.</p>
+  </div>
+</footer>
+
+<script>
+// ── A/B TAB ──
+function switchAB(t){
+  document.getElementById('panel-a').style.display = t==='a' ? 'block' : 'none'
+  document.getElementById('panel-b').style.display = t==='b' ? 'block' : 'none'
+  const ta = document.getElementById('tab-a')
+  const tb = document.getElementById('tab-b')
+  ta.style.background = t==='a' ? 'var(--green)' : 'transparent'
+  ta.style.color      = t==='a' ? 'var(--cream)' : 'var(--muted)'
+  tb.style.background = t==='b' ? 'var(--green)' : 'transparent'
+  tb.style.color      = t==='b' ? 'var(--cream)' : 'var(--muted)'
+}
+
+// ── NAV ──
+function go(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'))
+  document.querySelectorAll('[data-p]').forEach(a=>a.classList.remove('active'))
+  const pg=document.getElementById('page-'+p)
+  if(pg)pg.classList.add('active')
+  const ln=document.querySelector('[data-p="'+p+'"]')
+  if(ln)ln.classList.add('active')
+  window.scrollTo({top:0,behavior:'smooth'})
+  setTimeout(()=>pg&&pg.querySelectorAll('.r').forEach(r=>r.classList.add('v')),80)
+}
+function mobToggle(){document.getElementById('mob').classList.toggle('open')}
+
+// scroll reveal
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})
+},{threshold:.1})
+document.querySelectorAll('.r').forEach(el=>obs.observe(el))
+
+// ── FORMSPREE ──
+// 1. Regisztrálj: https://formspree.io (ingyenes, diatvetito@gmail.com-mal)
+// 2. New Form → kapsz egy ID-t pl. "xabcdefg"
+// 3. Cseréld le lent a YOUR_FORM_ID értéket arra az ID-re:
+const FORMSPREE_ID = 'YOUR_FORM_ID'
+
+async function kuldForm(){
+  const nev   = document.getElementById('f_nev').value.trim()
+  const email = document.getElementById('f_email').value.trim()
+  const esem  = document.getElementById('f_esem').value.trim()
+  const ido   = document.getElementById('f_ido').value || '—'
+  const hossz = document.getElementById('f_hossz').value || '—'
+  const db    = document.getElementById('f_db').value || '—'
+  const meg   = document.getElementById('f_meg').value.trim() || '—'
+  const msg   = document.getElementById('fm')
+
+  msg.className = 'fmsg'
+  if(!nev || !email || !esem){
+    msg.textContent = '⚠ Kérjük töltsd ki: Név, Email, Esemény típusa.'
+    msg.className = 'fmsg err'; return
+  }
+
+  document.getElementById('kuldBtn').disabled = true
+  document.getElementById('sp').style.display = 'inline-block'
+
+  // Demo mód amíg nincs Formspree ID
+  if(FORMSPREE_ID === 'YOUR_FORM_ID'){
+    await new Promise(r => setTimeout(r, 800))
+    document.getElementById('kuldBtn').disabled = false
+    document.getElementById('sp').style.display = 'none'
+    msg.innerHTML = '✅ <strong>Demo mód</strong> — Formspree ID beállítása után élesben működik!'
+    msg.className = 'fmsg ok'; return
+  }
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        Név: nev,
+        Email: email,
+        'Esemény típusa': esem,
+        Időpont: ido,
+        Hosszúság: hossz,
+        'Pizzák darabszáma': db,
+        Megjegyzés: meg,
+        _replyto: email,
+        _subject: `🍕 Új ajánlatkérés – ${nev}`
+      })
+    })
+    if(res.ok){
+      msg.innerHTML = '✅ <strong>Köszönöm az ajánlatkérést!</strong> 24 órán belül visszajelzek. 🍕'
+      msg.className = 'fmsg ok'
+      ;['f_nev','f_email','f_esem','f_ido','f_hossz','f_db','f_meg']
+        .forEach(id => document.getElementById(id).value = '')
+    } else {
+      throw new Error()
+    }
+  } catch {
+    msg.textContent = '❌ Hiba történt. Próbáld újra, vagy írj: oliversipocz@gmail.com'
+    msg.className = 'fmsg err'
+  }
+
+  document.getElementById('kuldBtn').disabled = false
+  document.getElementById('sp').style.display = 'none'
+}
+</script>
+</body>
+</html>
