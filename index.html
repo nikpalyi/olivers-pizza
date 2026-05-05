@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="images/logo.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --green:#111111;
@@ -43,23 +43,20 @@ a{text-decoration:none;cursor:pointer;color:inherit}
 
 /* ── NAV ── */
 nav{
-  background:var(--cream);border-bottom:1px solid var(--cream2);
+  background:var(--red);border-bottom:1px solid var(--red);
   position:sticky;top:0;z-index:200;
 }
 .nav-inner{
   max-width:1200px;margin:0 auto;
   padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;
 }
-.nav-logo{
-  font-family:var(--display);font-size:2rem;letter-spacing:.06em;
-  color:var(--green);line-height:1;
-}
+.nav-logo{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.06em;color:#000;cursor:pointer;text-transform:uppercase}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{
   font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--text);transition:color .2s;
+  color:#000;transition:color .2s;
 }
-.nav-links a:hover,.nav-links a.active{color:var(--red)}
+.nav-links a:hover,.nav-links a.active{color:#111}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
 .burger span{width:24px;height:2px;background:var(--text);display:block}
 .mob{
@@ -76,45 +73,45 @@ nav{
 .page{display:none}
 .page.active{display:block}
 
-/* ══════════ HERO ══════════ */
-.hero{
-  position:relative;min-height:80vh;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;overflow:hidden;
-  background:var(--green3);
+/* ── VIDEO ZONE ── */
+.video-zone{position:relative;background:var(--red);overflow:hidden;height:42vw;max-height:72vh;min-height:220px}
+.vz-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+
+/* ── HERO INTRO (below video) ── */
+.hero-intro{
+  background:var(--red);text-align:center;
+  padding:3rem 2rem 4rem;
 }
-.hero-bg{display:none}
-.hero-overlay{display:none}
-.hero{background:var(--green3);min-height:75vh}
-.hero-content{position:relative;z-index:2;padding:5rem 2rem}
 .hero-eyebrow{
   font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);margin-bottom:1.5rem;
-}
-.hero-sub{
-  font-family:var(--display);font-size:clamp(1.2rem,2.5vw,1.8rem);
-  color:rgba(255,255,255,.35);letter-spacing:.25em;margin-bottom:2rem;
+  color:#000;margin-bottom:1.2rem;
 }
 .hero-desc{
-  color:rgba(255,255,255,.6);font-size:.95rem;max-width:42ch;
-  margin:0 auto 2.5rem;line-height:1.9;
+  color:#111;font-size:.95rem;max-width:42ch;
+  margin:0 auto 2rem;line-height:1.9;
 }
 .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
 /* ── PIZZA SHOWCASE ── */
 .pizza-showcase{height:65vh;overflow:hidden;position:relative}
-.pizza-showcase img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.15) saturate(1.3) brightness(.95)}
+.pizza-showcase video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.35) saturate(0.7) brightness(0.88) sepia(0.15)}
+.pizza-showcase::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");background-size:180px 180px;opacity:.09;pointer-events:none;mix-blend-mode:overlay}
 
 /* ── BUTTONS ── */
 .btn{
   padding:.8rem 2rem;border-radius:50px;font-size:.82rem;
   font-weight:700;font-family:var(--body);letter-spacing:.08em;text-transform:uppercase;
-  cursor:pointer;transition:all .22s;display:inline-block;border:2px solid transparent;
+  cursor:pointer;transition:all .22s;display:inline-block;border:2px solid #000;
+  color:#000;
 }
-.btn-red{background:var(--red);color:#fff;border-color:var(--red)}
-.btn-red:hover{background:var(--red2);border-color:var(--red2)}
-.btn-outline-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
-.btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hero .btn-red{background:var(--red);color:#fff;border-color:var(--red)}
+.hero .btn-red:hover{background:#d64a00;border-color:#d64a00;transform:translateY(-2px)}
+.hero .btn-outline-w{background:transparent;color:#000;border-color:#000}
+.hero .btn-outline-w:hover{background:#000;color:#fff;transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#000;border-color:#000}
+.btn-red:hover{background:var(--red2);border-color:#000}
+.btn-outline-w{background:transparent;color:#000;border-color:#000}
+.btn-outline-w:hover{border-color:#000;background:rgba(0,0,0,.06)}
 .btn-outline-d{background:transparent;color:var(--text);border-color:var(--text)}
 .btn-outline-d:hover{background:var(--text);color:var(--cream)}
 .btn-green{background:var(--green);color:var(--cream);border-color:var(--green)}
@@ -187,6 +184,20 @@ nav{
 .pizza-name span{color:var(--red)}
 .pizza-ing{font-size:.8rem;color:var(--muted);letter-spacing:.05em;line-height:1.5}
 
+/* ── ACCORDION ── */
+.accordion{display:flex;flex-direction:column;gap:.8rem}
+.accordion-item{border:1px solid var(--cream2);border-radius:8px;overflow:hidden}
+.accordion-header{background:var(--cream2);padding:1.2rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s;user-select:none}
+.accordion-header:hover{background:var(--red);color:#fff}
+.accordion-header h3{font-family:var(--display);font-size:1.1rem;letter-spacing:.02em;margin:0}
+.accordion-arrow{transition:transform .3s;font-size:1.4rem}
+.accordion-item.open .accordion-header{background:var(--red);color:#fff}
+.accordion-item.open .accordion-arrow{transform:rotate(180deg)}
+.accordion-content{display:none;padding:1.5rem}
+.accordion-item.open .accordion-content{display:block;animation:slideDown .3s ease-out}
+@keyframes slideDown{from{opacity:0;max-height:0}to{opacity:1;max-height:500px}}
+.accordion-content p{color:var(--text);line-height:1.8;font-size:.97rem}
+
 /* ── WEB3FORMS ── */
 .wf{margin-bottom:1.2rem}
 .wf label{display:block;font-size:.82rem;font-weight:700;letter-spacing:.08em;color:#fff;margin-bottom:.5rem}
@@ -236,7 +247,7 @@ nav{
 /* ── FOOTER ── */
 footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 .ft{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
-.ft-logo{font-family:var(--display);font-size:2.5rem;color:var(--cream);letter-spacing:.08em}
+.ft-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;color:var(--cream);letter-spacing:.06em;text-transform:uppercase}
 .ft-sub{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,235,224,.4)}
 .ft-sep{width:50px;height:1px;background:rgba(255,255,255,.1)}
 .ft-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
@@ -318,11 +329,13 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <div class="nav-logo" onclick="go('home')" style="cursor:pointer">OLIVER'S PIZZA</div>
     <ul class="nav-links">
       <li><a onclick="go('home')" data-p="home" class="active">Kezdőlap</a></li>
+      <li><a onclick="go('rolam')" data-p="rolam">Rólam</a></li>
       <li><a onclick="go('pizzaink')" data-p="pizzaink">Pizzáink</a></li>
       <li><a onclick="go('galeria')" data-p="galeria">Galéria</a></li>
       <li><a onclick="go('szolg')" data-p="szolg">Ajánlatkérés</a></li>
       <li><a onclick="go('kontakt')" data-p="kontakt">Kontakt</a></li>
       <li><a onclick="go('webshop')" data-p="webshop">Webshop</a></li>
+      <li><a onclick="go('gyik')" data-p="gyik">GYIK</a></li>
     </ul>
     <button class="burger" onclick="mobToggle()" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -334,11 +347,13 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 <div class="mob" id="mob">
   <button class="mob-close" onclick="mobToggle()">✕</button>
   <a onclick="go('home');mobToggle()">Kezdőlap</a>
+  <a onclick="go('rolam');mobToggle()">Rólam</a>
   <a onclick="go('pizzaink');mobToggle()">Pizzáink</a>
   <a onclick="go('galeria');mobToggle()">Galéria</a>
   <a onclick="go('szolg');mobToggle()">Ajánlatkérés</a>
   <a onclick="go('kontakt');mobToggle()">Kontakt</a>
   <a onclick="go('webshop');mobToggle()">Webshop</a>
+  <a onclick="go('gyik');mobToggle()">GYIK</a>
   <a onclick="go('aszf');mobToggle()" style="font-size:1.2rem;color:rgba(240,235,224,.45)">ÁSZF</a>
   <a onclick="go('impresszum');mobToggle()" style="font-size:1.2rem;color:rgba(240,235,224,.45)">Impresszum</a>
 </div>
@@ -346,32 +361,23 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 <!-- ══════════ KEZDŐLAP ══════════ -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <img src="images/logo.png" alt="Oliver's Pizza logo" style="width:clamp(160px,25vw,260px);margin-bottom:2rem"/>
-      <p class="hero-eyebrow">Pizza Napoletana · Budapest</p>
-      <p class="hero-desc">Nápolyi stílusú pizza a Te rendezvényedre.<br/>Friss tészta, minőségi alapanyagok, felejthetetlen élmény.</p>
-      <div class="hero-cta">
-        <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
-        <a class="btn btn-outline-w" onclick="go('galeria')">Galéria</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <span class="ticker-inner">
-      PIZZA NAPOLETANA &nbsp;•&nbsp; CATERING BUDAPESTEN &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp; FESZTIVÁL &nbsp;•&nbsp;
-      PIZZA NAPOLETANA &nbsp;•&nbsp; CATERING BUDAPESTEN &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp; FESZTIVÁL &nbsp;•&nbsp;
-    </span>
+  <!-- VIDEO ZONE: animated logo -->
+  <div class="video-zone">
+    <video class="vz-video" autoplay muted loop playsinline>
+      <source src="images/animated logo final.mp4" type="video/mp4">
+      <source src="images/animated logo final.webm" type="video/webm">
+      <source src="images/animated logo final.mov" type="video/quicktime">
+    </video>
   </div>
 
-  <!-- PIZZA SHOWCASE -->
-  <div class="pizza-showcase">
-    <img src="images/pizza.jpg" alt="Pizza Napoletana"/>
+  <!-- HERO INTRO: text below the animated logo -->
+  <div class="hero-intro">
+    <p class="hero-eyebrow">Pizza Napoletana · Budapest</p>
+    <p class="hero-desc">Nápolyi stílusú pizza a Te rendezvényedre.<br/>Friss tészta, minőségi alapanyagok, felejthetetlen élmény.</p>
+    <div class="hero-cta">
+      <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
+      <a class="btn btn-outline-w" onclick="go('galeria')">Galéria</a>
+    </div>
   </div>
 
   <!-- INTRO SPLIT -->
@@ -389,11 +395,19 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
         <div class="r d1">
           <!-- KÉP HELYE: Kép 4 – Oliver pizzákat szel rendezvényen -->
           <div class="img-box">
-            <img src="images/pizza-chef2.jpg" alt="Oliver pizza rendezvényen"/>
+            <img src="images/chef-kitchen.jpg" alt="Oliver pizza rendezvényen"/>
+
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- PIZZA SHOWCASE -->
+  <div class="pizza-showcase">
+    <video autoplay muted loop playsinline>
+      <source src="images/oil.mp4" type="video/mp4">
+    </video>
   </div>
 
   <!-- 3 PILLÉR -->
@@ -418,6 +432,14 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     </div>
   </div>
 
+  <!-- TICKER -->
+  <div class="ticker">
+    <span class="ticker-inner">
+      PIZZA NAPOLETANA &nbsp;•&nbsp; CATERING BUDAPESTEN &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp; FESZTIVÁL &nbsp;•&nbsp;
+      PIZZA NAPOLETANA &nbsp;•&nbsp; CATERING BUDAPESTEN &nbsp;•&nbsp; ESKÜVŐ &nbsp;•&nbsp; CÉGES RENDEZVÉNY &nbsp;•&nbsp; SZÜLETÉSNAP &nbsp;•&nbsp; FESZTIVÁL &nbsp;•&nbsp;
+    </span>
+  </div>
+
   <!-- PIZZAINK -->
   <div class="sec-cream">
     <div class="wrap">
@@ -425,9 +447,9 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
         <div>
           <p class="lbl lbl-red r">Étlapunk</p>
           <h2 class="big-title r">MINŐSÉGI<br/>ALAPANYAGOK</h2>
-          <p class="body-text muted r" style="margin-bottom:1.5rem">A legmagasabb olasz minőségű alapanyagokkal dolgozunk. Autentikus nápolyi technikával, friss tésztából, helyszínen sütve.</p>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">A legmagasabb olasz minőségű alapanyagokkal dolgozunk. Autentikus nápolyi stílusú technikával, friss tésztából, helyszínen sütve.</p>
           <p class="body-text muted r" style="margin-bottom:1.5rem">Kínálunk extra feltéteket is — szarvasgomba, prémium szalámi, friss zöldségek — hogy minden vendég megtalálja a kedvencét.</p>
-          <p class="body-text muted r" style="margin-bottom:2rem">Rugalmasak vagyunk speciális étrendekkel: gluténmentes tészta és laktózmentes sajt is elérhető kérésre.</p>
+          <p class="body-text muted r" style="margin-bottom:1.5rem">AJÁNDÉK minden csomag mellé 3 féle olívaolaj és bazsalikom. Így mindenki kedvére variálhatja még a kész pizzákat egy kicsit!</p>
           <div class="r">
             <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
           </div>
@@ -456,7 +478,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
             </div>
             <div class="pizza-item r">
               <div class="pizza-name">Quat<span>t</span>ro</div>
-              <div class="pizza-ing">mozzarella, gorgonzola, parmezán, ricotta</div>
+              <div class="pizza-ing">mozzarella, parmezán, gorgonzola, füstölt provola</div>
             </div>
           </div>
         </div>
@@ -470,9 +492,9 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       <p class="lbl lbl-gold r">Galéria</p>
       <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">A PIZZA,<br/>AHOGY LENNIE KELL.</h2>
       <div class="grid-preview" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:2rem">
-        <div class="g-item r"><img src="images/pizza-margherita.jpg" alt="Margherita pizza"/></div>
-        <div class="g-item r d1"><img src="images/pizza-truffle.jpg" alt="Fehér pizza"/></div>
-        <div class="g-item r d2"><img src="images/pizza-oven2.jpg" alt="Pizza kemencéből"/></div>
+        <div class="g-item r"><img src="images/pizza-hero.jpg" alt="Margherita pizza"/></div>
+        <div class="g-item r d1"><img src="images/pizza2.jpg" alt="Fehér pizza"/></div>
+        <div class="g-item r d2"><img src="images/pizza3.jpg" alt="Pizza kemencéből"/></div>
       </div>
       <div class="r">
         <a class="btn btn-outline-w" onclick="go('galeria')">Összes kép →</a>
@@ -488,6 +510,40 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   </div>
 </div>
 
+<!-- ══════════ RÓLAM ══════════ -->
+<div class="page" id="page-rolam">
+  <div class="sec-green" style="padding:4rem 2rem 2rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <p class="lbl lbl-gold r">Történet</p>
+      <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">RÓLAM</h2>
+    </div>
+  </div>
+  <div class="sec-cream">
+    <div class="wrap">
+      <div class="split" style="gap:4rem;align-items:start">
+        <div>
+          <p class="body-text r" style="margin-bottom:1.5rem"><strong>Sziasztok!</strong></p>
+          <p class="body-text r" style="margin-bottom:1.5rem">Sipőcz Olivér vagyok, 4 éve pizzafüggő.... hangozna egy anonim pizzafüggőknek szánt csoport beköszönésén, de azt kell mondjam, hogy ez sajnos a realitás! :D</p>
+          <p class="body-text r" style="margin-bottom:1.5rem">Szerelemként indult, hobbiként folytatódott és ma már vállalkozás lett belőle!</p>
+          <p class="body-text r" style="margin-bottom:2rem"><strong>A fő célom</strong> az, hogy minél több emberhez eljuttassam a nápolyi stílusú pizzákat és az azt körülvevő életérzést!</p>
+          <p class="body-text r" style="margin-bottom:1.5rem">Legyen az esküvő, szülinap vagy céges rendezvény, kitelepülős pizzériaként a szemeteket előtt helyszínen készülnek a finomabbnál finomabb nápolyi stílusú pizzák!</p>
+          <p class="body-text r" style="margin-bottom:2rem"><strong>Szeretettel, szakértelemmel és nagy odafigyeléssel</strong>, friss, minőségi és gondosan válogatott olasz alapanyagokból!</p>
+          <div class="r" style="margin-top:3rem">
+            <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
+          </div>
+        </div>
+        <div class="r">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:8px;overflow:hidden">
+            <img src="images/pizza-oven2.jpg" alt="Pizza kemencéből" style="width:100%;height:100%;object-fit:cover;grid-column:1/3"/>
+            <img src="images/proud-chef.jpg" alt="Sipőcz Olivér – büszke chef" style="width:100%;height:100%;object-fit:cover"/>
+            <img src="images/pizza-chef2.jpg" alt="Olivér a rendezvényen" style="width:100%;height:100%;object-fit:cover"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════ PIZZÁINK ══════════ -->
 <div class="page" id="page-pizzaink">
   <div class="sec-green" style="padding:4rem 2rem 2rem">
@@ -498,62 +554,104 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   </div>
   <div class="ticker">
     <span class="ticker-inner">
-      MARGHERITA &nbsp;•&nbsp; MARINARA &nbsp;•&nbsp; DIAVOLA &nbsp;•&nbsp; TARTUFO &nbsp;•&nbsp; PROSCIUTTO &nbsp;•&nbsp; QUATTRO &nbsp;•&nbsp;
-      MARGHERITA &nbsp;•&nbsp; MARINARA &nbsp;•&nbsp; DIAVOLA &nbsp;•&nbsp; TARTUFO &nbsp;•&nbsp; PROSCIUTTO &nbsp;•&nbsp; QUATTRO &nbsp;•&nbsp;
+      MARGHERITA &nbsp;•&nbsp; MARINARA &nbsp;•&nbsp; PROSCIUTTO COTTO &nbsp;•&nbsp; SALAME PICCANTE &nbsp;•&nbsp; BIANCA &nbsp;•&nbsp; GOMBA &nbsp;•&nbsp; TARTUFO &nbsp;•&nbsp; PROSCIUTTO CRUDO &nbsp;•&nbsp; QUATTRO FORMAGGI &nbsp;•&nbsp; CARBONARA &nbsp;•&nbsp;
+      MARGHERITA &nbsp;•&nbsp; MARINARA &nbsp;•&nbsp; PROSCIUTTO COTTO &nbsp;•&nbsp; SALAME PICCANTE &nbsp;•&nbsp; BIANCA &nbsp;•&nbsp; GOMBA &nbsp;•&nbsp; TARTUFO &nbsp;•&nbsp; PROSCIUTTO CRUDO &nbsp;•&nbsp; QUATTRO FORMAGGI &nbsp;•&nbsp; CARBONARA &nbsp;•&nbsp;
     </span>
   </div>
   <div class="sec-cream">
     <div class="wrap">
-      <div class="split" style="gap:4rem;align-items:start">
-        <div>
-          <p class="lbl lbl-red r">Alapanyagok</p>
-          <h3 class="big-title r" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem">Minőségi olasz és magyar alapanyagok</h3>
-          <p class="body-text muted r" style="margin-bottom:1.5rem">A legmagasabb olasz minőségű alapanyagokkal dolgozunk. Friss tészta, autentikus nápolyi technika, helyszínen sütve — minden rendezvényen.</p>
-          <p class="body-text muted r" style="margin-bottom:1.5rem">Sonkáink, szalámiaink és más alapanyagaink szintén Nápolyból érkeznek. Minden pizzát friss, kézzel nyújtott tésztából készítünk.</p>
-          <h3 class="big-title r" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.8rem;margin-top:2rem">Extra feltétek, különleges kérések</h3>
-          <p class="body-text muted r" style="margin-bottom:1.5rem">Kínálunk extra feltéteket is — szarvasgomba, prémium szalámi, friss zöldségek — hogy minden vendég megtalálja a kedvencét.</p>
-          <h3 class="big-title r" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.8rem">Speciális étrend</h3>
-          <p class="body-text muted r" style="margin-bottom:2rem">Rugalmasak vagyunk speciális étrendekkel: gluténmentes tészta és laktózmentes sajt is elérhető kérésre.</p>
-          <div class="r">
-            <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
+      <p class="body-text r" style="margin-bottom:2rem;font-size:1rem"><strong>A csomagajánlatainkat az alábbi pizzákból válogathatod össze:</strong></p>
+      
+      <!-- ALAP PIZZÁK -->
+      <div style="margin-bottom:4rem">
+        <p class="lbl lbl-red r">Alapverzió</p>
+        <h3 class="big-title r" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem">ALAP PIZZÁK</h3>
+        <div class="pizza-list">
+          <div class="pizza-item r">
+            <div class="pizza-name">Margherita</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Marinara</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, fokhagymagerezd, olívaolaj, oregánó</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Prosciutto Cotto</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, főtt olasz sonka</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Salame Piccante</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, fűszeres olasz szalámi, chilis méz</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Bianca</div>
+            <div class="pizza-ing">fior di latte mozzarella, parmezán, olívaolaj</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Gomba</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, fior di latte mozzarella, olívaolaj, barna csiperkegomba</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Kiddo</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, fior di latte mozzarella, főtt olasz sonka, kukorica</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Salame Dolce</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, dolce olasz szalámi</div>
           </div>
         </div>
-        <div>
-          <div class="pizza-list">
-            <div class="pizza-item r">
-              <div class="pizza-name">Margherita</div>
-              <div class="pizza-ing">paradicsomszósz, mozzarella, bazsalikom, olívaolaj</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Marinara</div>
-              <div class="pizza-ing">paradicsomszósz, fokhagyma, oregánó, olívaolaj</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Diavola</div>
-              <div class="pizza-ing">paradicsomszósz, mozzarella, csípős szalámi, olívaolaj</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Tartufo</div>
-              <div class="pizza-ing">mozzarella, szarvasgomba, parmezán, olívaolaj</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Prosciutto</div>
-              <div class="pizza-ing">paradicsomszósz, mozzarella, pármai sonka, parmezán</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Quattro</div>
-              <div class="pizza-ing">mozzarella, gorgonzola, parmezán, ricotta</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Bufala</div>
-              <div class="pizza-ing">paradicsomszósz, bivalymozzarella, bazsalikom, olívaolaj</div>
-            </div>
-            <div class="pizza-item r">
-              <div class="pizza-name">Calabrese</div>
-              <div class="pizza-ing">paradicsomszósz, mozzarella, nduja, parmezán, olívaolaj</div>
-            </div>
+      </div>
+
+      <!-- PRÉMIUM PIZZÁK -->
+      <div>
+        <p class="lbl lbl-red r">Prémium</p>
+        <h3 class="big-title r" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem">PRÉMIUM PIZZÁK</h3>
+        <div class="pizza-list">
+          <div class="pizza-item r">
+            <div class="pizza-name">Tartufo</div>
+            <div class="pizza-ing">szarvasgombás krémalap, parmezán, fior di latte mozzarella, szarvasgomba/dolce szalámi, szarvasgombás olívaolaj</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Prosciutto Crudo</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, füstölt sonka, rukkola, burrata</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Quattro Formaggi</div>
+            <div class="pizza-ing">parmezán, fior di latte mozzarella, gorgonzola, scamorza, olívaolaj</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Pancetta</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, szárított olasz has</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Zucca</div>
+            <div class="pizza-ing">sütőtökkrém alap, bazsalikom, parmezán, fior di latte mozzarella, gorgonzola, fűszeres olasz szalámi, párolt lilahagyma, olívaolaj, rukkola</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Carbonara</div>
+            <div class="pizza-ing">fior di latte mozzarella, parmezán, bazsalikom, guanciale bacon, tojássárgája krém</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Ungherese</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, bazsalikom, parmezán, fűszeres olasz szalámi, főtt sonka, lilahagyma, olívaolaj</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Nduja</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, bazsalikom, parmezán, fior di latte mozzarella, tépett nduja (calabriai kolbászkrém), olívaolaj</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Tonno</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, bazsalikom, parmezán, fior di latte mozzarella, tonhal steak darabok</div>
+          </div>
+          <div class="pizza-item r">
+            <div class="pizza-name">Fichi</div>
+            <div class="pizza-ing">füge lekvár, bazsalikom, parmezán, fior di latte mozzarella, fűszeres olasz szalámi, főtt lilahagyma, keksz morzsa</div>
           </div>
         </div>
+      </div>
+
+      <div class="r" style="margin-top:3rem;text-align:center">
+        <a class="btn btn-red" onclick="go('szolg')">Ajánlatot kérek</a>
       </div>
     </div>
   </div>
@@ -573,16 +671,32 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       PIZZA NAPOLETANA &nbsp;•&nbsp; AUTENTIKUS &nbsp;•&nbsp; BUDAPEST &nbsp;•&nbsp; CATERING &nbsp;•&nbsp; RENDEZVÉNY &nbsp;•&nbsp; MINŐSÉG &nbsp;•&nbsp;
     </span>
   </div>
-  <div class="sec-green" style="padding:2rem">
-    <div class="gallery" style="max-width:1100px;margin:0 auto">
-      <div class="g-item tall r"><img src="images/pizza-oven2.jpg" alt="Pizza kemencéből"/></div>
-      <div class="g-item r"><img src="images/pizza-margherita.jpg" alt="Margherita pizza"/></div>
-      <div class="g-item r d1"><img src="images/pizza-truffle.jpg" alt="Fehér pizza"/></div>
-      <div class="g-item wide r"><img src="images/pizza-chef2.jpg" alt="Oliver rendezvényen"/></div>
-      <div class="g-item r d1"><img src="images/pizza-chef1.jpg" alt="Oliver"/></div>
-      <div class="g-item r d2"><img src="images/pizza-oven.jpg" alt="Oliver kemencénél"/></div>
+  <div style="background:var(--green);padding:2rem 2rem 4rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="gallery">
+        <!-- Pizza fotók – jó minőségűek elöl -->
+        <div class="g-item r"><img src="images/pizza-hero.jpg" alt="Pizza"/></div>
+        <div class="g-item r d1"><img src="images/pizza2.jpg" alt="Pizza"/></div>
+        <div class="g-item r d2"><img src="images/pizza3.jpg" alt="Pizza"/></div>
+        <div class="g-item r"><img src="images/pizza4.jpg" alt="Pizza"/></div>
+        <div class="g-item r d1"><img src="images/pizza5.jpg" alt="Pizza"/></div>
+        <div class="g-item r"><img src="images/pizza7.jpg" alt="Pizza"/></div>
+        <div class="g-item r d1"><img src="images/pizza8.jpg" alt="Pizza"/></div>
+        <div class="g-item r d2"><img src="images/pizza9.jpg" alt="Pizza"/></div>
+        <div class="g-item r"><img src="images/pizza10.jpg" alt="Pizza"/></div>
+        <div class="g-item r d1"><img src="images/pizza11.png" alt="Pizza"/></div>
+        <div class="g-item r d2"><img src="images/pizza-oven.jpg" alt="Pizza kemence"/></div>
+        <div class="g-item r"><img src="images/pizza-oven2.jpg" alt="Pizza kemencéből"/></div>
+        <div class="g-item r d1"><img src="images/chef-kitchen.jpg" alt="Oliver a konyhában"/></div>
+        <div class="g-item r d2"><img src="images/proud-chef.jpg" alt="Oliver"/></div>
+        <div class="g-item r"><img src="images/pizza-chef1.jpg" alt="Pizza chef"/></div>
+        <div class="g-item r d1"><img src="images/pizza-chef2.jpg" alt="Pizza chef"/></div>
+        <!-- Gyengébb minőségűek a végén -->
+        <div class="g-item r d2"><img src="images/pizza-margherita.jpg" alt="Margherita pizza"/></div>
+        <div class="g-item r"><img src="images/pizza-truffle.jpg" alt="Szarvasgomba pizza"/></div>
+      </div>
     </div>
-    <div style="text-align:center;padding:3rem 2rem">
+    <div style="text-align:center;padding:3rem 2rem 0">
       <a class="btn btn-red r" onclick="go('szolg')">Ajánlatot kérek</a>
     </div>
   </div>
@@ -682,11 +796,117 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 <!-- ══════════ WEBSHOP ══════════ -->
 <div class="page" id="page-webshop">
   <div class="ws">
-    <div class="ws-big">SOON</div>
+    <div class="ws-big">COMING SOON..</div>
     <p class="lbl lbl-gold" style="justify-content:center">Webshop</p>
     <h2 style="font-family:var(--display);font-size:clamp(2.5rem,6vw,4rem);color:var(--cream);letter-spacing:.06em;margin:.5rem 0 1rem">A BOLT ÉPÜL</h2>
     <p style="color:rgba(240,235,224,.6);max-width:36ch;text-align:center;margin-bottom:2.5rem">Hamarosan elérhető lesz a saját Oliver's Pizza merch boltja!</p>
     <a class="btn btn-red" onclick="go('kontakt')">Kapcsolatfelvétel</a>
+  </div>
+</div>
+
+<!-- ══════════ GYIK ══════════ -->
+<div class="page" id="page-gyik">
+  <div class="sec-green" style="padding:4rem 2rem 2rem">
+    <div style="max-width:1100px;margin:0 auto">
+      <p class="lbl lbl-gold r">Segítség</p>
+      <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">GYAKRAN ISMÉTELT KÉRDÉSEK</h2>
+    </div>
+  </div>
+  <div class="sec-cream">
+    <div style="max-width:900px;margin:0 auto;padding:2rem">
+      <div class="accordion r">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Hogy zajlik nálatok a szervezés?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>A beérkezett űrlapot 24 órán belül feldolgozzuk és ha van még kérdés bármelyikünk részéről, akkor azt átbeszéljük e-mailen. Ezt követően küldünk egy árajánlatot. Amennyiben szimpatikus az ajánlat, megírjuk a szerződést. Ezt követően már csak várjuk a remek eseményed!</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Milyen tényezők befolyásolják az árképzést?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Az árképzést befolyásoló tényezők: a pizzák darabszáma, a helyszín távolsága, az esemény időtartama, a választott pizzák típusa és az extrák darabszáma.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Van-e minimum létszám/pizza szám, ahhoz, hogy elvállaljunk egy rendezvényt?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Igen, a minimum pizzák darabszáma 24.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Mekkorák a pizzáink?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Pizzáink 260-280 grammos tésztából készülnek és nyújtástól függően 28-32 cm átmérőjűek.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Hány darab pizzát rendeljek, hogy biztosan elég legyen?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Ez erősen függ az esemény jellegétől és, hogy van-e más catering szolgáltatás, de a tapasztalatunk azt mutatja, hogy általában 1 pizza/fő elég szokott lenni.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Kell-e biztosítani valamit a működésünkhöz?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Igen, áramra (230 V), mosdó használati lehetőség és folyó vízre szükségünk lesz.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Mekkora hely kell nekünk?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Ez is függ az esemény méretétől és a pizzák darabszámától, de minimum 10 m² szükségünk lesz!</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Mi történik, ha elered az eső?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Semmi, a sátor minden időjárási körülményben nálunk van! Felcsapjuk és mehet tovább a buli!</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Kültéri és beltéri eseményeket is vállalunk?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Elsősorban jobban szeretjük a kültéren megrendezett eseményeket, de ha erre semmilyen módon nincs lehetőség, akkor egy jól átszellőztethető helyiséget biztosítsatok a zavartalan sütéshez. Kemencéink gázpalackról működnek, amelyek oxigént vonnak el a környezetből és a sütés során előfordulhat némi füst keletkezése is! Ezt érdemes figyelembe venni!</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>Mi a helyzet a gyerekekkel? Menjenek az amamához vagy nem lesz velük probléma?</h3>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Dehogyis, maradjon nyugodtan mindenki gyerek és nézze csak, hogy hogyan készül az igazi pizza! A vállalkozó szelleműek még akár meg is próbálkozhatnak a feltétezéssel! 😊</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -780,6 +1000,14 @@ function go(p){
   setTimeout(()=>pg&&pg.querySelectorAll('.r').forEach(r=>r.classList.add('v')),80)
 }
 function mobToggle(){document.getElementById('mob').classList.toggle('open')}
+
+// ── ACCORDION ──
+function toggleAccordion(header){
+  const item=header.closest('.accordion-item')
+  const isOpen=item.classList.contains('open')
+  document.querySelectorAll('.accordion-item').forEach(el=>el.classList.remove('open'))
+  if(!isOpen)item.classList.add('open')
+}
 
 // ── WEB3FORMS ──
 document.getElementById('ajanlat-form').addEventListener('submit', async function(e){
