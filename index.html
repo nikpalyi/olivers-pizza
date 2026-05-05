@@ -716,42 +716,38 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 
   <div style="background:var(--green3);padding:3rem 2rem 5rem">
     <div style="max-width:620px;margin:0 auto">
-      <div id="form-msg" style="display:none;padding:1rem 1.2rem;border-radius:10px;margin-bottom:1.5rem;font-weight:700;font-size:.95rem"></div>
-      <form id="ajanlat-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="b6362171-290c-40d5-a255-b0508dcc5b6c">
-        <input type="hidden" name="subject" value="Új ajánlatkérés – Oliver's Pizza">
-        <input type="hidden" name="from_name" value="Oliver's Pizza Weboldal">
+      <form id="ajanlat-form" action="mailto:oliverspizzabp@gmail.com" method="POST" enctype="text/plain">
         <div class="wf">
           <label>Név *</label>
-          <input type="text" name="name" placeholder="Teljes neved" required>
+          <input type="text" name="Nev" placeholder="Teljes neved" required>
         </div>
         <div class="wf">
           <label>Email *</label>
-          <input type="email" name="email" placeholder="email@example.com" required>
+          <input type="email" name="Email" placeholder="email@example.com" required>
         </div>
         <div class="wf">
           <label>Esemény típusa *</label>
-          <input type="text" name="esemeny_tipusa" placeholder="Esküvő, születésnap, céges rendezvény..." required>
+          <input type="text" name="Esemeny tipusa" placeholder="Esküvő, születésnap, céges rendezvény..." required>
         </div>
         <div class="wf-row">
           <div class="wf">
             <label>Időpont *</label>
-            <input type="date" name="idopont" required>
+            <input type="date" name="Idopont" required>
           </div>
           <div class="wf">
             <label>Hosszúság</label>
-            <input type="text" name="hosszusag" placeholder="pl. 3 óra">
+            <input type="text" name="Hosszusag" placeholder="pl. 3 óra">
           </div>
         </div>
         <div class="wf">
           <label>Pizzák darabszáma</label>
-          <input type="number" name="pizzak_db" placeholder="pl. 30 db" min="1">
+          <input type="number" name="Pizzak db" placeholder="pl. 30 db" min="1">
         </div>
         <div class="wf">
           <label>Megjegyzés</label>
-          <textarea name="message" placeholder="Bármilyen kérdés vagy megjegyzés..."></textarea>
+          <textarea name="Megjegyzes" placeholder="Bármilyen kérdés vagy megjegyzés..."></textarea>
         </div>
-        <button type="submit" id="form-btn" class="btn btn-red" style="width:100%;padding:1rem 2rem;font-size:.9rem;border-radius:12px;margin-top:.5rem">Ajánlatot kérek!</button>
+        <button type="submit" class="btn btn-red" style="width:100%;padding:1rem 2rem;font-size:.9rem;border-radius:12px;margin-top:.5rem">Ajánlatot kérek!</button>
       </form>
     </div>
   </div>
@@ -1005,29 +1001,6 @@ function toggleAccordion(header){
   if(!isOpen)item.classList.add('open')
 }
 
-// ── WEB3FORMS ──
-document.getElementById('ajanlat-form').addEventListener('submit', async function(e){
-  e.preventDefault()
-  const btn = document.getElementById('form-btn')
-  const msg = document.getElementById('form-msg')
-  btn.disabled = true
-  btn.textContent = 'Küldés...'
-  msg.style.display = 'none'
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(this)})
-    const json = await res.json()
-    if(json.success){
-      msg.textContent = 'Köszönöm az ajánlatkérést! 24 órán belül visszajelzek.'
-      msg.style.cssText = 'display:block;padding:1rem 1.2rem;border-radius:10px;margin-bottom:1.5rem;font-weight:700;font-size:.95rem;background:var(--red);color:#fff'
-      this.reset()
-    } else { throw new Error() }
-  } catch {
-    msg.textContent = 'Hiba történt. Írj közvetlenül: oliverspizzabp@gmail.com'
-    msg.style.cssText = 'display:block;padding:1rem 1.2rem;border-radius:10px;margin-bottom:1.5rem;font-weight:700;font-size:.95rem;background:#c0392b;color:#fff'
-  }
-  btn.disabled = false
-  btn.textContent = 'Ajánlatot kérek!'
-})
 
 // ── COOKIE ──
 function cookieSet(val){
