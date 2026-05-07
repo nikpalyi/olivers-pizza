@@ -58,7 +58,8 @@ nav{
   max-width:1200px;margin:0 auto;
   padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;
 }
-.nav-logo{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.06em;color:#000;cursor:pointer;text-transform:uppercase}
+.nav-logo{display:flex;flex-direction:column;line-height:1.1;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.06em;color:#000;cursor:pointer;text-transform:uppercase}
+.nav-logo span{font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:lowercase;opacity:.75;margin-top:.1rem}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{
   font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
@@ -259,7 +260,8 @@ nav{
 /* ── FOOTER ── */
 footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 .ft{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
-.ft-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;color:var(--cream);letter-spacing:.06em;text-transform:uppercase}
+.ft-logo{display:flex;flex-direction:column;line-height:1.1;font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;color:var(--cream);letter-spacing:.06em;text-transform:uppercase}
+.ft-logo span{font-size:1rem;font-weight:600;letter-spacing:.12em;text-transform:lowercase;opacity:.6;margin-top:.15rem}
 .ft-sub{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,235,224,.4)}
 .ft-sep{width:50px;height:1px;background:rgba(255,255,255,.1)}
 .ft-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
@@ -349,7 +351,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" onclick="go('home')" style="cursor:pointer">OLIVER'S PIZZA</div>
+    <div class="nav-logo" onclick="go('home')" style="cursor:pointer">OLIVER'S<span>pizza napoletana</span></div>
     <ul class="nav-links">
       <li><a onclick="go('home')" data-p="home" class="active">Kezdőlap</a></li>
       <li><a onclick="go('rolam')" data-p="rolam">Rólam</a></li>
@@ -975,7 +977,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 <!-- FOOTER -->
 <footer>
   <div class="ft">
-    <div class="ft-logo">OLIVER'S PIZZA</div>
+    <div class="ft-logo">OLIVER'S<span>pizza napoletana</span></div>
     <div class="ft-sub">Pizza Napoletana · Budapest</div>
     <div class="ft-social">
       <a href="https://www.instagram.com/oliverspizza_bp/" target="_blank" title="Instagram">
