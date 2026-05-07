@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Oliver's Pizza – Pizza Napoletana Budapest</title>
 <meta name="description" content="Autentikus nápolyi pizza catering Budapesten. Kérj ajánlatot esküvőre, céges rendezvényre, születésnapra!"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://oliverspizza.hu/"/>
+<meta property="og:title" content="Oliver's Pizza – Pizza Napoletana Budapest"/>
+<meta property="og:description" content="Autentikus nápolyi pizza catering Budapesten. Kérj ajánlatot esküvőre, céges rendezvényre, születésnapra!"/>
+<meta property="og:image" content="https://oliverspizza.hu/images/logo.png"/>
+<meta property="og:image:alt" content="Oliver's Pizza logó"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://oliverspizza.hu/images/logo.png"/>
 <link rel="icon" type="image/png" href="images/logo.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -60,12 +68,12 @@ nav{
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
 .burger span{width:24px;height:2px;background:var(--text);display:block}
 .mob{
-  display:none;position:fixed;inset:0;top:0;padding-top:80px;
-  background:var(--green);z-index:190;
-  flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  display:none;position:fixed;inset:0;top:0;padding:80px 2rem 2rem;
+  background:var(--green);z-index:190;overflow-y:auto;
+  flex-direction:column;align-items:center;justify-content:flex-start;gap:1.2rem;
 }
 .mob.open{display:flex}
-.mob a{font-family:var(--display);font-size:2.2rem;color:var(--cream);letter-spacing:.08em}
+.mob a{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.2rem);color:var(--cream);letter-spacing:.08em}
 .mob a:hover{color:var(--red)}
 .mob-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--cream);font-size:2rem;cursor:pointer}
 
@@ -210,6 +218,10 @@ nav{
 .wf textarea{resize:vertical;min-height:140px}
 .wf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:600px){.wf-row{grid-template-columns:1fr}}
+.partner-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2.5rem 3.5rem}
+.partner-logo{object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s}
+.partner-logo:hover{filter:grayscale(0) opacity(1)}
+@media(max-width:600px){.partner-logos{gap:2rem 2.5rem}}
 
 /* ── KONTAKT ── */
 .k-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
@@ -507,15 +519,15 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   <div style="background:var(--cream);padding:4rem 2rem;border-top:1px solid var(--cream2)">
     <div style="max-width:1100px;margin:0 auto">
       <p class="lbl lbl-red r" style="text-align:center;justify-content:center;margin-bottom:2.5rem">Büszkék vagyunk partnereinkre</p>
-      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2.5rem 3.5rem">
-        <img src="images/ceges-logok/IMG_5528.jpeg" alt="Allianz" style="height:36px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5529.webp" alt="KPMG" style="height:36px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5530.jpeg" alt="DS Smith" style="height:44px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5531.png" alt="Brands and More Hungary" style="height:36px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5532.png" alt="TERRA" style="height:32px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5533.png" alt="Younic" style="height:40px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5534.png" alt="Complet Party Service" style="height:44px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
-        <img src="images/ceges-logok/IMG_5535.png" alt="Pallér Csarnok" style="height:44px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+      <div class="partner-logos">
+        <img src="images/ceges-logok/IMG_5528.jpeg" alt="Allianz" class="partner-logo" style="height:54px">
+        <img src="images/ceges-logok/IMG_5529.webp" alt="KPMG" class="partner-logo" style="height:54px">
+        <img src="images/ceges-logok/IMG_5530.jpeg" alt="DS Smith" class="partner-logo" style="height:64px">
+        <img src="images/ceges-logok/IMG_5531.png" alt="Brands and More Hungary" class="partner-logo" style="height:54px">
+        <img src="images/ceges-logok/IMG_5532.png" alt="TERRA" class="partner-logo" style="height:48px">
+        <img src="images/ceges-logok/IMG_5533.png" alt="Younic" class="partner-logo" style="height:58px">
+        <img src="images/ceges-logok/IMG_5534.png" alt="Complet Party Service" class="partner-logo" style="height:64px">
+        <img src="images/ceges-logok/IMG_5535.png" alt="Pallér Csarnok" class="partner-logo" style="height:64px">
       </div>
     </div>
   </div>
@@ -749,7 +761,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       <div style="display:flex;flex-direction:column;gap:1rem;max-width:380px;margin:0 auto">
 
         <!-- WhatsApp -->
-        <a href="https://wa.me/36302077667?text=Szia%20Oli%C3%A9r!%20Aj%C3%A1nlatot%20szeretn%C3%A9k%20k%C3%A9rni.%0A%0AEsem%C3%A9ny%20t%C3%ADpusa%3A%20%0AId%C5%91pont%3A%20%0APizz%C3%A1k%20sz%C3%A1ma%3A%20%0AEgy%C3%A9b%3A%20"
+        <a href="https://wa.me/36302077667?text=Szia%20Oliv%C3%A9r!%20Aj%C3%A1nlatot%20szeretn%C3%A9k%20k%C3%A9rni.%0A%0AN%C3%A9v%3A%20%0AEmail%3A%20%0ATelefonsz%C3%A1m%3A%20%0AEsem%C3%A9ny%20t%C3%ADpusa%3A%20%0AD%C3%A1tum%20%C3%A9s%20id%C5%91pont%3A%20%0AAz%20esem%C3%A9ny%20hossza%3A%20%0APizz%C3%A1k%20darabsz%C3%A1ma%3A%20%0AMegjegyz%C3%A9s%3A%20"
            target="_blank"
            style="display:flex;align-items:center;justify-content:center;gap:.9rem;background:#25D366;color:#fff;border:none;padding:1.1rem 2rem;border-radius:14px;font-family:var(--body);font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:opacity .2s">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -757,7 +769,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
         </a>
 
         <!-- Email -->
-        <a href="mailto:oliverspizzabp@gmail.com?subject=Aj%C3%A1nlatk%C3%A9r%C3%A9s%20%E2%80%93%20Oliver%27s%20Pizza&body=Szia%20Oliv%C3%A9r!%0A%0AEsem%C3%A9ny%20t%C3%ADpusa%3A%20%0AId%C5%91pont%3A%20%0APizz%C3%A1k%20sz%C3%A1ma%3A%20%0AEgy%C3%A9b%3A%20"
+        <a href="mailto:oliverspizzabp@gmail.com?subject=Aj%C3%A1nlatk%C3%A9r%C3%A9s%20%E2%80%93%20Oliver%27s%20Pizza&body=Szia%20Oliv%C3%A9r!%0A%0AN%C3%A9v%3A%20%0AEmail%3A%20%0ATelefonsz%C3%A1m%3A%20%0AEsem%C3%A9ny%20t%C3%ADpusa%3A%20%0AD%C3%A1tum%20%C3%A9s%20id%C5%91pont%3A%20%0AAz%20esem%C3%A9ny%20hossza%3A%20%0APizz%C3%A1k%20darabsz%C3%A1ma%3A%20%0AMegjegyz%C3%A9s%3A%20"
            style="display:flex;align-items:center;justify-content:center;gap:.9rem;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3);padding:1.1rem 2rem;border-radius:14px;font-family:var(--body);font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:border-color .2s">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           E-mail küldése
@@ -916,7 +928,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <h2>ÁSZF</h2>
     <div class="legal-d">Utolsó módosítás: 2026. január 1.</div>
     <h3>1. A szolgáltató adatai</h3>
-    <p>Neve: Sipőcz Olivér | E-mail: oliverspizzabp@gmail.com | Székhely: 1204 Budapest, Tátra tér 5-8. | Adószám: [adószám]</p>
+    <p>Neve: Sipőcz Olivér | E-mail: oliverspizzabp@gmail.com | Székhely: 1204 Budapest, Tátra tér 5-8. | Adószám: 91893095-1-43</p>
     <h3>2. Ajánlatkérés és megrendelés</h3>
     <p>A weboldalon keresztül ajánlatkérés nyújtható be. A Szolgáltató 24 munkaidős órán belül visszaigazol. A szerződés írásbeli megállapodással jön létre.</p>
     <h3>3. Díjak és fizetés</h3>
@@ -936,7 +948,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
     <h2>IMPRESSZUM</h2>
     <div class="legal-d">Utolsó módosítás: 2026. január 1.</div>
     <h3>A weboldal üzemeltetője</h3>
-    <p>Sipőcz Olivér egyéni vállalkozó | 1204 Budapest, Tátra tér 5-8. | oliverspizzabp@gmail.com | Adószám: [adószám]</p>
+    <p>Sipőcz Olivér egyéni vállalkozó | 1204 Budapest, Tátra tér 5-8. | oliverspizzabp@gmail.com | Adószám: 91893095-1-43</p>
     <h3>Adatkezelési tájékoztató</h3>
     <p>Adatkezelő: Sipőcz Olivér. Jogalap: érintett hozzájárulása (GDPR 6. cikk (1) a) pont).</p>
     <h3>Kezelt adatok</h3>
