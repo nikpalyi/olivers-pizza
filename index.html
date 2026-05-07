@@ -301,6 +301,17 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   .cookie-btns{flex-direction:column;width:100%}
   .cookie-btns .btn{width:100%;text-align:center}
 }
+
+/* ── LIGHTBOX ── */
+.lb{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.92);align-items:center;justify-content:center;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:4px;box-shadow:0 8px 60px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;font-size:2rem;padding:.6rem 1rem;cursor:pointer;border-radius:8px;transition:background .2s;line-height:1}
+.lb-prev{left:1rem}.lb-next{right:1rem}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.25)}
+.g-item img{cursor:zoom-in}
 </style>
 </head>
 <body>
@@ -334,7 +345,6 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       <li><a onclick="go('galeria')" data-p="galeria">Galéria</a></li>
       <li><a onclick="go('szolg')" data-p="szolg">Ajánlatkérés</a></li>
       <li><a onclick="go('kontakt')" data-p="kontakt">Kontakt</a></li>
-      <li><a onclick="go('webshop')" data-p="webshop">Webshop</a></li>
       <li><a onclick="go('gyik')" data-p="gyik">GYIK</a></li>
     </ul>
     <button class="burger" onclick="mobToggle()" aria-label="Menü">
@@ -352,7 +362,6 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   <a onclick="go('galeria');mobToggle()">Galéria</a>
   <a onclick="go('szolg');mobToggle()">Ajánlatkérés</a>
   <a onclick="go('kontakt');mobToggle()">Kontakt</a>
-  <a onclick="go('webshop');mobToggle()">Webshop</a>
   <a onclick="go('gyik');mobToggle()">GYIK</a>
   <a onclick="go('aszf');mobToggle()" style="font-size:1.2rem;color:rgba(240,235,224,.45)">ÁSZF</a>
   <a onclick="go('impresszum');mobToggle()" style="font-size:1.2rem;color:rgba(240,235,224,.45)">Impresszum</a>
@@ -449,23 +458,23 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       <div class="pizza-list">
         <div class="pizza-item r">
           <div class="pizza-name">Mar<span>g</span>herita</div>
-          <div class="pizza-ing">paradicsomszósz, mozzarella, bazsalikom, olívaolaj</div>
+          <div class="pizza-ing">san marzano paradicsomszósz, fior di latte mozzarella, bazsalikom, olívaolaj</div>
         </div>
         <div class="pizza-item r">
           <div class="pizza-name">Mari<span>n</span>ara</div>
-          <div class="pizza-ing">paradicsomszósz, fokhagyma, oregánó, olívaolaj</div>
+          <div class="pizza-ing">san marzano paradicsomszósz, fokhagyma, oregánó, olívaolaj</div>
         </div>
         <div class="pizza-item r">
-          <div class="pizza-name">D<span>i</span>avola</div>
-          <div class="pizza-ing">paradicsomszósz, mozzarella, csípős szalámi, olívaolaj</div>
+          <div class="pizza-name">Salame <span>p</span>iccante</div>
+          <div class="pizza-ing">san marzano paradicsomszósz, fior di latte mozzarella, csípős szalámi, olívaolaj</div>
         </div>
         <div class="pizza-item r">
           <div class="pizza-name">Tar<span>t</span>ufo</div>
-          <div class="pizza-ing">mozzarella, szarvasgomba, parmezán, olívaolaj</div>
+          <div class="pizza-ing">fior di latte mozzarella, szarvasgomba, parmezán, olívaolaj</div>
         </div>
         <div class="pizza-item r">
           <div class="pizza-name">Pro<span>s</span>ciutto</div>
-          <div class="pizza-ing">paradicsomszósz, mozzarella, pármai sonka, parmezán</div>
+          <div class="pizza-ing">san marzano paradicsomszósz, fior di latte mozzarella, pármai sonka, parmezán</div>
         </div>
         <div class="pizza-item r">
           <div class="pizza-name">Quat<span>t</span>ro</div>
@@ -490,6 +499,23 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       </div>
       <div class="r">
         <a class="btn" onclick="go('galeria')" style="color:#fff;border-color:#fff">Összes kép →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERENCIÁK -->
+  <div style="background:var(--cream);padding:4rem 2rem;border-top:1px solid var(--cream2)">
+    <div style="max-width:1100px;margin:0 auto">
+      <p class="lbl lbl-red r" style="text-align:center;justify-content:center;margin-bottom:2.5rem">Büszkék vagyunk partnereinkre</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2.5rem 3.5rem">
+        <img src="images/ceges-logok/IMG_5528.jpeg" alt="Allianz" style="height:36px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5529.webp" alt="KPMG" style="height:36px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5530.jpeg" alt="DS Smith" style="height:44px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5531.png" alt="Brands and More Hungary" style="height:36px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5532.png" alt="TERRA" style="height:32px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5533.png" alt="Younic" style="height:40px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5534.png" alt="Complet Party Service" style="height:44px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
+        <img src="images/ceges-logok/IMG_5535.png" alt="Pallér Csarnok" style="height:44px;object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s" onmouseover="this.style.filter='grayscale(0) opacity(1)'" onmouseout="this.style.filter='grayscale(1) opacity(.45)'">
       </div>
     </div>
   </div>
@@ -582,7 +608,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
             <div class="pizza-ing">fior di latte mozzarella, parmezán, olívaolaj</div>
           </div>
           <div class="pizza-item r">
-            <div class="pizza-name">Gomba</div>
+            <div class="pizza-name">Funghi</div>
             <div class="pizza-ing">san marzano paradicsomszósz, parmezán, fior di latte mozzarella, olívaolaj, barna csiperkegomba</div>
           </div>
           <div class="pizza-item r">
@@ -615,7 +641,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
           </div>
           <div class="pizza-item r">
             <div class="pizza-name">Pancetta</div>
-            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, szárított olasz has</div>
+            <div class="pizza-ing">san marzano paradicsomszósz, parmezán, bazsalikom, fior di latte mozzarella, olívaolaj, szárított olasz hasaalja, fűszeres sertés hasaalja</div>
           </div>
           <div class="pizza-item r">
             <div class="pizza-name">Zucca</div>
@@ -777,15 +803,6 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 </div>
 
 <!-- ══════════ WEBSHOP ══════════ -->
-<div class="page" id="page-webshop">
-  <div class="ws">
-    <div class="ws-big">COMING SOON..</div>
-    <p class="lbl lbl-gold" style="justify-content:center">Webshop</p>
-    <h2 style="font-family:var(--display);font-size:clamp(2.5rem,6vw,4rem);color:var(--cream);letter-spacing:.06em;margin:.5rem 0 1rem">A BOLT ÉPÜL</h2>
-    <p style="color:rgba(240,235,224,.6);max-width:36ch;text-align:center;margin-bottom:2.5rem">Hamarosan elérhető lesz a saját Oliver's Pizza merch boltja!</p>
-    <a class="btn btn-red" onclick="go('kontakt')">Kapcsolatfelvétel</a>
-  </div>
-</div>
 
 <!-- ══════════ GYIK ══════════ -->
 <div class="page" id="page-gyik">
@@ -992,6 +1009,45 @@ function toggleAccordion(header){
   if(!isOpen)item.classList.add('open')
 }
 
+
+// ── LIGHTBOX ──
+(function(){
+  const lb=document.createElement('div')
+  lb.className='lb'
+  lb.innerHTML='<button class="lb-close" aria-label="Bezárás">✕</button><button class="lb-prev" aria-label="Előző">&#8249;</button><img src="" alt=""/><button class="lb-next" aria-label="Következő">&#8250;</button>'
+  document.body.appendChild(lb)
+  const img=lb.querySelector('img')
+  let imgs=[],idx=0
+  function open(i){
+    idx=i
+    img.src=imgs[idx]
+    lb.classList.add('open')
+    document.body.style.overflow='hidden'
+  }
+  function close(){lb.classList.remove('open');document.body.style.overflow=''}
+  function prev(){open((idx-1+imgs.length)%imgs.length)}
+  function next(){open((idx+1)%imgs.length)}
+  lb.querySelector('.lb-close').onclick=close
+  lb.querySelector('.lb-prev').onclick=e=>{e.stopPropagation();prev()}
+  lb.querySelector('.lb-next').onclick=e=>{e.stopPropagation();next()}
+  lb.onclick=e=>{if(e.target===lb||e.target===img)close()}
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return
+    if(e.key==='Escape')close()
+    if(e.key==='ArrowLeft')prev()
+    if(e.key==='ArrowRight')next()
+  })
+  function init(){
+    imgs=Array.from(document.querySelectorAll('.g-item img')).map(i=>i.src)
+    document.querySelectorAll('.g-item img').forEach((i,n)=>{
+      i.onclick=()=>open(n)
+    })
+  }
+  // re-init when gallery page opens
+  const origGo=window.go
+  window.go=function(p){origGo(p);if(p==='galeria')setTimeout(init,100)}
+  init()
+})()
 
 // ── COOKIE ──
 function cookieSet(val){
