@@ -1036,7 +1036,7 @@ function go(p){
   if(!_skipHistory)history.pushState({page:p},'','#'+p)
 }
 function setNavH(){
-  const h=document.querySelector('nav').offsetHeight
+  const h=document.querySelector('nav').offsetHeight+12
   document.documentElement.style.setProperty('--nav-h',h+'px')
 }
 setNavH()
