@@ -69,16 +69,17 @@ nav{
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
 .burger span{width:24px;height:2px;background:var(--text);display:block}
 .mob-backdrop{
-  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:189;
+  position:fixed;left:0;right:0;bottom:0;top:var(--nav-h,68px);
+  background:rgba(0,0,0,.55);z-index:189;
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .3s,visibility .3s;
 }
 .mob-backdrop.open{opacity:1;visibility:visible;pointer-events:auto}
 .mob{
   display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;
-  position:fixed;top:0;right:0;
-  width:min(82vw,320px);height:100vh;
-  padding:4.5rem 2rem 2rem;
+  position:fixed;top:var(--nav-h,68px);right:0;bottom:0;
+  width:min(82vw,320px);
+  padding:1.5rem 2rem 2rem;
   background:var(--green);z-index:190;overflow-y:auto;
   transform:translateX(100%);visibility:hidden;
   transition:transform .32s cubic-bezier(.4,0,.2,1),visibility .32s;
@@ -92,7 +93,7 @@ nav{
 }
 .mob a:last-child{border-bottom:none}
 .mob a:hover,.mob a:active{color:var(--red)}
-.mob-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;color:var(--cream);font-size:1.8rem;cursor:pointer;line-height:1}
+.mob-close{display:none}
 
 /* ── PAGES ── */
 .page{display:none}
@@ -1034,6 +1035,13 @@ function go(p){
   setTimeout(()=>pg&&pg.querySelectorAll('.r').forEach(r=>r.classList.add('v')),80)
   if(!_skipHistory)history.pushState({page:p},'','#'+p)
 }
+function setNavH(){
+  const h=document.querySelector('nav').offsetHeight
+  document.documentElement.style.setProperty('--nav-h',h+'px')
+}
+setNavH()
+window.addEventListener('resize',setNavH)
+
 function mobToggle(){
   const mob=document.getElementById('mob')
   const bd=document.getElementById('mobBackdrop')
