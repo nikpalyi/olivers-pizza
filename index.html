@@ -269,18 +269,12 @@ nav{
 @keyframes slideDown{from{opacity:0;max-height:0}to{opacity:1;max-height:500px}}
 .accordion-content p{color:var(--text);line-height:1.8;font-size:.97rem}
 
-/* ── WEB3FORMS ── */
-.wf{margin-bottom:1.2rem}
-.wf label{display:block;font-size:.82rem;font-weight:700;letter-spacing:.08em;color:#fff;margin-bottom:.5rem}
-.wf input,.wf textarea{
-  width:100%;background:#fff;border:none;
-  color:#111;padding:.9rem 1.2rem;font-size:.95rem;font-family:var(--body);
-  border-radius:12px;outline:none;transition:box-shadow .2s;
+/* ── JOTFORM ── */
+.jotform-wrap{max-width:900px;margin:0 auto}
+.jotform-embed{
+  width:100%;height:860px;border:0;border-radius:8px;
+  background:#fff;display:block;
 }
-.wf input:focus,.wf textarea:focus{box-shadow:0 0 0 3px var(--red)}
-.wf textarea{resize:vertical;min-height:140px}
-.wf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:600px){.wf-row{grid-template-columns:1fr}}
 .partner-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2.5rem 3.5rem}
 .partner-logo{object-fit:contain;filter:grayscale(1) opacity(.45);transition:filter .3s}
 .partner-logo:hover{filter:grayscale(0) opacity(1)}
@@ -357,8 +351,8 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   .grid-3{grid-template-columns:1fr!important}
   .grid-preview{grid-template-columns:repeat(2,1fr)!important}
 
-  /* Google Form */
-  .form-iframe{height:700px!important}
+  /* Jotform */
+  .jotform-embed{height:780px}
 
   /* Cookie bar */
   .cookie-bar{padding:.8rem 1rem;gap:.6rem}
@@ -374,7 +368,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   .hero-sub{letter-spacing:.06em}
   .ft-links{gap:1rem}
   .ft-links a{font-size:.68rem}
-  .form-iframe{height:800px!important}
+  .jotform-embed{height:840px}
   .cookie-btns{flex-direction:column;width:100%}
   .cookie-btns .btn{width:100%;text-align:center}
 }
@@ -829,29 +823,19 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   </div>
 
   <div style="background:var(--green3);padding:5rem 2rem 6rem;text-align:center">
-    <div style="max-width:560px;margin:0 auto">
+    <div class="jotform-wrap">
       <p style="color:rgba(255,255,255,.5);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;margin-bottom:1rem">Ajánlatkérés kérdőívvel</p>
       <h3 style="font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);color:#fff;letter-spacing:.04em;margin-bottom:.8rem">TÖLTSD KI A KÉRDŐÍVET</h3>
-      <p style="color:rgba(255,255,255,.55);font-size:.92rem;line-height:1.8;margin-bottom:3rem">Válassz platformot — megnyílik egy előre összeállított kérdőív.<br/>Töltsd ki és küldd el, 24 órán belül visszajelzünk.</p>
+      <p style="color:rgba(255,255,255,.55);font-size:.92rem;line-height:1.8;margin-bottom:3rem">Töltsd ki az űrlapot, és 24 órán belül visszajelzünk.</p>
 
-      <div style="display:flex;flex-direction:column;gap:1rem;max-width:380px;margin:0 auto">
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/36302077667?text=Szia%20Oliv%C3%A9r!%20Aj%C3%A1nlatot%20szeretn%C3%A9k%20k%C3%A9rni.%0A%0AN%C3%A9v%3A%20%0AEmail%3A%20%0ATelefonsz%C3%A1m%3A%20%0AEsem%C3%A9ny%20t%C3%ADpusa%3A%20%0AD%C3%A1tum%20%C3%A9s%20id%C5%91pont%3A%20%0AAz%20esem%C3%A9ny%20hossza%3A%20%0APizz%C3%A1k%20darabsz%C3%A1ma%3A%20%0AMegjegyz%C3%A9s%3A%20"
-           target="_blank"
-           style="display:flex;align-items:center;justify-content:center;gap:.9rem;background:var(--red);color:#fff;border:none;padding:1.1rem 2rem;border-radius:14px;font-family:var(--body);font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;white-space:nowrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Megnyitom WhatsApp-on
-        </a>
-
-        <!-- Email -->
-        <a href="mailto:oliverspizzabp@gmail.com?subject=Aj%C3%A1nlatk%C3%A9r%C3%A9s%20%E2%80%93%20Oliver%27s%20Pizza&body=Szia%20Oliv%C3%A9r!%0A%0AN%C3%A9v%3A%20%0AEmail%3A%20%0ATelefonsz%C3%A1m%3A%20%0AEsem%C3%A9ny%20t%C3%ADpusa%3A%20%0AD%C3%A1tum%20%C3%A9s%20id%C5%91pont%3A%20%0AAz%20esem%C3%A9ny%20hossza%3A%20%0APizz%C3%A1k%20darabsz%C3%A1ma%3A%20%0AMegjegyz%C3%A9s%3A%20"
-           style="display:flex;align-items:center;justify-content:center;gap:.9rem;background:var(--red);color:#fff;border:none;padding:1.1rem 2rem;border-radius:14px;font-family:var(--body);font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;white-space:nowrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Megnyitom e-mailen
-        </a>
-
-      </div>
+      <iframe
+        class="jotform-embed"
+        title="Oliver's Pizza ajánlatkérés"
+        src="https://form.jotform.com/261854326990062"
+        allowtransparency="true"
+        allow="geolocation; microphone; camera; fullscreen"
+        loading="lazy">
+      </iframe>
 
       <p style="margin-top:2.5rem;color:rgba(255,255,255,.3);font-size:.78rem">+36 30 207 7667 &nbsp;·&nbsp; oliverspizzabp@gmail.com</p>
     </div>
