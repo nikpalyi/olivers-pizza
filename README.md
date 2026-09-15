@@ -1,12 +1,36 @@
 # Oliver's Pizza weboldal – tartalom kezelése
 
-Ez az útmutató ahhoz készült, hogy **programozói tudás nélkül**, akár csak a böngészőből lehessen képet, videót és logót cserélni az oldalon.
+Ez az útmutató ahhoz készült, hogy **programozói tudás nélkül** lehessen képet, videót és logót cserélni az oldalon.
 
-Az oldal a GitHubról megy élesbe (GitHub Pages → oliverspizza.hu). Amit a GitHubon módosítasz a `main` ágon, az 1–2 percen belül megjelenik az éles oldalon.
+Az oldal a GitHubról megy élesbe (GitHub Pages → oliverspizza.hu). Amit a GitHubon a `main` ágon módosítasz, az 1–2 percen belül megjelenik az éles oldalon.
 
 ---
 
-## 1. A mappaszerkezet
+## 1. Előfeltétel: GitHub-fiók
+
+**Ez mindenképpen kell**, bármelyik módszert használod. A fiók ingyenes, nem kell hozzá bankkártya.
+
+### Regisztráció (kb. 2 perc)
+
+1. Nyisd meg: https://github.com/signup
+2. Add meg az e-mail címed → **Continue**
+3. Adj meg egy jelszót → **Continue**
+4. Válassz felhasználónevet (ez lesz a GitHub-neved) → **Continue**
+5. Erősítsd meg az e-mail címed a kapott levélben.
+
+### Meghívás a projektbe
+
+A regisztráció után a repó tulajdonosának meg kell hívnia téged:
+
+> Settings → Collaborators → **Add people** → a felhasználónév megadása → **Write** jogosultság
+
+A meghívottnak e-mailben jön egy levél, abban az **Accept invitation** gombra kell kattintani. Enélkül nem lehet fájlt feltölteni.
+
+> **Fontos:** a GitHub 2021 óta **nem fogadja el a fiók jelszavát** feltöltéshez a Terminálból. A böngészős módszernél (2. fejezet) ez nem számít, ott a sima bejelentkezés elég. A Terminálos módszernél egyszeri böngészős bejelentkezés kell (lásd 4. fejezet).
+
+---
+
+## 2. A mappaszerkezet
 
 Minden kép és videó a `content` mappában van:
 
@@ -30,10 +54,10 @@ Támogatott képek: `.jpg`, `.jpeg`, `.png`, `.webp`, `.gif` · Támogatott vide
 
 ---
 
-## 2. Munka a böngészőből (telepítés nélkül) – EZ A LEGEGYSZERŰBB
+## 3. Munka a böngészőből – EZ A LEGEGYSZERŰBB
 
-Semmit nem kell telepíteni, elég egy GitHub-fiók és szerkesztői jogosultság a repóhoz:
-https://github.com/nikpalyi/olivers-pizza
+Semmit nem kell telepíteni, csak a GitHub-fiók és az elfogadott meghívó.
+A repó: https://github.com/nikpalyi/olivers-pizza
 
 ### Új kép feltöltése a galériába
 
@@ -57,56 +81,67 @@ A galéria a fájlnév sorrendjében jelenik meg, a képek `pizza-01`, `pizza-02
 2. Töröld a benne lévő videót (kuka ikon → Commit changes).
 3. **Add file → Upload files** → húzd be az új videót → Commit changes.
 
-A fájl neve bármi lehet, a mappában lévő videót használja az oldal. Csak **egy** videó legyen benne.
+A fájl neve bármi lehet. Csak **egy** videó legyen a mappában.
 
 > A GitHub böngészős feltöltésének 25 MB-os fájlméret korlátja van. Ennél nagyobb videót előbb tömöríteni kell.
 
 ### Új partnerlogó
 
 1. Töltsd fel a `content/uploads/logos` mappába.
-2. A fájlnév eleje a sorrendet adja, a vége a cég nevét, például: `11-kedvenc-ceg.png`.
+2. A fájlnév eleje a sorrendet adja, a vége a cég nevét, például: `12-kedvenc-ceg.png`.
 
 Ha a cégnév ékezetes vagy speciális írásmódú (`KPMG`, `Pallér Csarnok`), írd be a pontos nevet a `scripts/update-content.js` fájl tetején lévő `logoNames` listába.
 
 ### Mi történik a háttérben?
 
-A `.github/workflows/frissites.yml` minden feltöltés/törlés után magától lefuttatja a frissítő scriptet, és frissíti a generált adatfájlokat. Ezt a GitHubon az **Actions** fülön lehet követni: ha ott zöld pipa van, kész a frissítés.
+A `.github/workflows/frissites.yml` minden feltöltés/törlés után magától lefuttatja a frissítő scriptet. A GitHubon az **Actions** fülön lehet követni: ha ott zöld pipa van, kész a frissítés.
 
 ---
 
-## 3. Munka a saját gépről (Terminállal)
+## 4. Munka a saját gépről (frissites.command)
 
-Csak akkor kell, ha sok fájlt mozgatsz egyszerre, vagy előre meg akarod nézni az eredményt.
+Akkor hasznos, ha sok fájlt mozgatsz egyszerre, vagy előre meg akarod nézni az eredményt a böngészőben.
 
-1. Telepítsd a Node.js LTS verziót: https://nodejs.org/
-2. Másold a fájlokat a megfelelő `content/uploads/...` mappába.
-3. Futtasd a frissítést – kattints duplán erre a fájlra:
+### Egyszeri előkészítés
+
+1. **Node.js** telepítése: https://nodejs.org/ (az LTS verzió)
+2. **GitHub CLI** telepítése: https://cli.github.com/ – ezen keresztül tudsz bejelentkezni a GitHub-fiókodba.
+
+### A használat
+
+1. Másold a fájlokat a megfelelő `content/uploads/...` mappába (Finderben, húzd be őket).
+2. Kattints duplán erre a fájlra:
 
 ```text
 frissites.command
 ```
 
-Vagy Terminálból:
+A script mindent elvégez, és közben kérdez:
 
-```bash
-cd /Users/npalyi/Documents/DEV/olivers-pizza
-npm run frissit
-```
+- **Első alkalommal** megkérdezi a **GitHub felhasználónevedet** és az **e-mail címedet** – ez kerül a mentések mellé aláírásként.
+- **Első alkalommal** megnyitja a böngészőt a GitHub bejelentkezéshez: ott a saját felhasználóneveddel és jelszavaddal lépsz be, és megerősíted a Terminálban megjelenő kódot.
+- Utána minden alkalommal megmutatja, mely fájlok változtak, és megkérdezi: **„Feltoltsem ezeket az eles oldalra? (i = igen)”**
 
-4. Nyisd meg az `index.html` fájlt böngészőben, és ellenőrizd.
-5. Ha jó, töltsd fel a GitHubra (`git add . && git commit -m "új képek" && git push`).
+Ha `i`-t nyomsz, a script elmenti és feltölti a változásokat – **a git parancsokat nem neked kell begépelni, benne vannak a scriptben.** Ha bármi mást nyomsz, semmit nem tölt fel, a változások a gépeden maradnak.
 
-Frissítés után ilyesmit kell látnod:
+Sikeres futás után ilyesmit látsz:
 
 ```text
 Galéria frissítve: 71 elem (64 feltöltött, elöl).
 Logók frissítve: 11 elem.
 Fővideó: content/uploads/fovideo/animated-logo.mp4
+
+KESZ. Az eles oldal 1-2 percen belul frissul:
+https://oliverspizza.hu
 ```
+
+### Ha csak megnézni akarod, feltöltés nélkül
+
+Futtasd a scriptet, és a kérdésnél nyomj `n`-t. Utána nyisd meg az `index.html` fájlt böngészőben. Ha jónak találod, futtasd újra és nyomj `i`-t.
 
 ---
 
-## 4. A főoldal fix képeinek cseréje
+## 5. A főoldal fix képeinek cseréje
 
 A főoldalon néhány kép fixen be van építve (`content/oldal` mappa):
 `pizza-hero.jpg`, `pizza2.jpg`, `pizza3.jpg`, `chef-kitchen.jpg`, `pizza-oven2.jpg`, `proud-chef.jpg`, `pizza-chef2.jpg`, `oil.mp4`, `logo.png`.
@@ -115,11 +150,11 @@ Ezeket úgy lehet cserélni, hogy **ugyanolyan néven** töltesz fel egy új fá
 
 ---
 
-## 5. Hasznos tudnivalók
+## 6. Hasznos tudnivalók
 
 - A galéria sorrendjét a fájlnév adja, ezért érdemes a sorszámozott nevet megtartani.
 - Álló képből a script magasabb csempét, nagyon széles képből szélesebb csempét csinál.
-- Logóknál átlátszó hátterű `.png` vagy `.webp` mutat a legjobban.
+- Logóknál átlátszó hátterű `.png` vagy `.webp` mutat a legjobban. A Google képkeresőből mentett, „kockás hátterű” fájl **nem** átlátszó – azon a kockás minta valódi képpont.
 - A képeket érdemes feltöltés előtt kisebbre menteni (1600–2000 px széles, 300–500 KB). A túl nagy fájlok lassítják az oldalt.
 - A `content/archivum` mappát a script nem nézi – ide lehet félretenni fájlokat törlés helyett.
 
