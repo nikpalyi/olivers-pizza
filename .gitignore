@@ -1,0 +1,35 @@
+# ─────────────────────────────────────────────
+#  Oliver's Pizza – mit ne toltsunk fel a repoba
+# ─────────────────────────────────────────────
+
+# macOS altal automatikusan letrehozott fajlok
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# Szerkesztok es ideiglenes fajlok
+.vscode/
+.idea/
+*.swp
+*~
+
+# Jelszavak, kulcsok – ezek soha ne kerüljenek fel
+.env
+.env.*
+
+# Felretett fajlok: a mappa megmarad, a tartalma nem kerul fel a GitHubra.
+# Ide lehet berakni a mar nem hasznalt kepeket/videokat torles helyett.
+content/archivum/*
+!content/archivum/.gitkeep

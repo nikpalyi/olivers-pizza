@@ -42,7 +42,7 @@ content/
     logos/            partner cégek logói
     fovideo/          a nyitóképernyő nagy videója (ide EGY videó kerüljön)
   oldal/            <- az oldalba fixen beépített képek (főoldali fotók, logó, háttérvideó)
-  archivum/         <- sehol nem használt, félretett fájlok
+  archivum/         <- félretett fájlok (a tartalma nem kerül fel a GitHubra)
   gallery-data.js   <- generált fájl, ne szerkeszd
   logos-data.js     <- generált fájl, ne szerkeszd
   site-data.js      <- generált fájl, ne szerkeszd
@@ -150,12 +150,69 @@ Ezeket úgy lehet cserélni, hogy **ugyanolyan néven** töltesz fel egy új fá
 
 ---
 
-## 6. Hasznos tudnivalók
+## 6. Szövegek átírása
+
+A képekkel ellentétben a szövegek nem külön mappában vannak, hanem az **`index.html`** fájlban. Ezek is átírhatók a böngészőből, csak egy kicsit óvatosabban kell csinálni.
+
+### Lépésről lépésre
+
+1. Nyisd meg a repó főoldalán az **`index.html`** fájlt.
+2. Jobbra fent kattints a **ceruza ikonra** (Edit this file).
+3. Keresd meg a szöveget: nyomj **Cmd+F** (Mac) vagy **Ctrl+F** (Windows), és írd be a mondat pár szavát.
+4. Írd át a szöveget.
+5. Görgess le, és kattints a **Commit changes** gombra.
+
+1–2 perc múlva élesben is látszik.
+
+### Az egyetlen szabály, amit be kell tartani
+
+Csak a **`>` és a `<` jel közötti részt** írd át. A csúcsos zárójelben lévő dolgokhoz ne nyúlj.
+
+Így néz ki egy sor eredetiben:
+
+```html
+<p class="hero-desc">Nápolyi stílusú pizza a Te rendezvényedre.<br/>Friss tészta, minőségi alapanyagok, felejthetetlen élmény.</p>
+```
+
+Ebből ennyit szabad átírni:
+
+```html
+<p class="hero-desc">EZT ÍRD ÁT<br/>ÉS EZT IS</p>
+```
+
+Vagyis a `<p class="hero-desc">` és a `</p>` maradjon érintetlenül.
+
+Két apróság:
+- A `<br/>` sortörést jelent. Ha a szöveg közepén látod, ott új sorban folytatódik a felirat. Nyugodtan maradhat, vagy áthelyezhető.
+- A `<strong>szöveg</strong>` félkövér kiemelést jelent.
+
+### Hol vannak a fontosabb szövegek?
+
+| Mit keresel | Írd be a keresőbe |
+|---|---|
+| Nyitóképernyő felirata | `Nápolyi stílusú pizza a Te` |
+| „Miért Oliver's?" blokk | `FRISS TÉSZTA` |
+| „Mit kapsz?" rész | `MIT KAPSZ` |
+| Pizzák felsorolása | `Pár közkedvelt pizza` |
+| Galéria feletti cím | `AHOGY LENNIE KELL` |
+| Rólam / bemutatkozás | `Sipőcz Olivér vagyok` |
+| Kapcsolat, telefonszám | `page-kontakt` |
+| Gyakori kérdések | `page-gyik` |
+
+### Ha valami elromlik
+
+Nem tudsz kárt tenni benne véglegesen: a GitHub minden mentést megőriz. Ha a módosítás után furcsán néz ki az oldal, szólj, és egy kattintással visszaállítható az előző állapot.
+
+Ezért érdemes **egyszerre egy szöveget** átírni és megnézni az eredményt, nem tízet egyszerre.
+
+---
+
+## 7. Hasznos tudnivalók
 
 - A galéria sorrendjét a fájlnév adja, ezért érdemes a sorszámozott nevet megtartani.
 - Álló képből a script magasabb csempét, nagyon széles képből szélesebb csempét csinál.
 - Logóknál átlátszó hátterű `.png` vagy `.webp` mutat a legjobban. A Google képkeresőből mentett, „kockás hátterű” fájl **nem** átlátszó – azon a kockás minta valódi képpont.
 - A képeket érdemes feltöltés előtt kisebbre menteni (1600–2000 px széles, 300–500 KB). A túl nagy fájlok lassítják az oldalt.
-- A `content/archivum` mappát a script nem nézi – ide lehet félretenni fájlokat törlés helyett.
+- A `content/archivum` mappát a script nem nézi, és a `.gitignore` miatt a tartalma nem is kerül fel a GitHubra. Ide lehet félretenni fájlokat a saját gépeden törlés helyett.
 
 Ha valami nem jelenik meg: nézd meg a GitHub **Actions** fülén, hogy lefutott-e a frissítés, és hogy jó mappába került-e a fájl.
