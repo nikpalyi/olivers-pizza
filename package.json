@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "frissit": "node scripts/update-content.js"
+  }
+}

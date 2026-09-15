@@ -9,11 +9,11 @@
 <meta property="og:url" content="https://oliverspizza.hu/"/>
 <meta property="og:title" content="Oliver's Pizza – Pizza Napoletana Budapest"/>
 <meta property="og:description" content="Autentikus nápolyi pizza catering Budapesten. Kérj ajánlatot esküvőre, céges rendezvényre, születésnapra!"/>
-<meta property="og:image" content="https://oliverspizza.hu/images/logo.png"/>
+<meta property="og:image" content="https://oliverspizza.hu/content/oldal/logo.png"/>
 <meta property="og:image:alt" content="Oliver's Pizza logó"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:image" content="https://oliverspizza.hu/images/logo.png"/>
-<link rel="icon" type="image/png" href="images/logo.png"/>
+<meta name="twitter:image" content="https://oliverspizza.hu/content/oldal/logo.png"/>
+<link rel="icon" type="image/png" href="content/oldal/logo.png"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,7 +24,7 @@
   "url": "https://oliverspizza.hu",
   "telephone": "+36302077667",
   "email": "oliverspizzabp@gmail.com",
-  "image": "https://oliverspizza.hu/images/logo.png",
+  "image": "https://oliverspizza.hu/content/oldal/logo.png",
   "priceRange": "$$",
   "servesCuisine": "Neapolitan Pizza",
   "areaServed": {
@@ -452,11 +452,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
 
   <!-- VIDEO ZONE: animated logo -->
   <div class="video-zone">
-    <video class="vz-video" autoplay muted loop playsinline>
-      <source src="images/animated logo final.mp4" type="video/mp4">
-      <source src="images/animated logo final.webm" type="video/webm">
-      <source src="images/animated logo final.mov" type="video/quicktime">
-    </video>
+    <video class="vz-video" id="heroVideo" autoplay muted loop playsinline></video>
   </div>
 
   <!-- HERO INTRO: text below the animated logo -->
@@ -484,7 +480,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
         <div class="r d1">
           <!-- KÉP HELYE: Kép 4 – Oliver pizzákat szel rendezvényen -->
           <div class="img-box">
-            <img src="images/chef-kitchen.jpg" alt="Oliver pizza rendezvényen"/>
+            <img src="content/oldal/chef-kitchen.jpg" alt="Oliver pizza rendezvényen"/>
 
           </div>
         </div>
@@ -495,7 +491,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   <!-- PIZZA SHOWCASE -->
   <div class="pizza-showcase">
     <video autoplay muted loop playsinline>
-      <source src="images/oil.mp4" type="video/mp4">
+      <source src="content/oldal/oil.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -573,9 +569,9 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
       <p class="lbl lbl-gold r">Galéria</p>
       <h2 class="big-title r" style="color:#fff;margin-bottom:2rem">A PIZZA,<br/>AHOGY LENNIE KELL.</h2>
       <div class="grid-preview" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:2rem">
-        <div class="g-item r"><img src="images/pizza-hero.jpg" alt="Margherita pizza"/></div>
-        <div class="g-item r d1"><img src="images/pizza2.jpg" alt="Fehér pizza"/></div>
-        <div class="g-item r d2"><img src="images/pizza3.jpg" alt="Pizza kemencéből"/></div>
+        <div class="g-item r"><img src="content/oldal/pizza-hero.jpg" alt="Margherita pizza"/></div>
+        <div class="g-item r d1"><img src="content/oldal/pizza2.jpg" alt="Fehér pizza"/></div>
+        <div class="g-item r d2"><img src="content/oldal/pizza3.jpg" alt="Pizza kemencéből"/></div>
       </div>
       <div class="r">
         <a class="btn" onclick="go('galeria')" style="color:#fff;border-color:#fff">Összes kép →</a>
@@ -587,18 +583,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   <div style="background:var(--cream);padding:4rem 2rem;border-top:1px solid var(--cream2)">
     <div style="max-width:1100px;margin:0 auto">
       <p class="lbl lbl-red r" style="text-align:center;justify-content:center;margin-bottom:2.5rem">Büszkék vagyunk partnereinkre</p>
-      <div class="partner-logos">
-        <img src="images/ceges-logok/IMG_5528.jpeg" alt="Allianz" class="partner-logo" style="height:54px">
-        <img src="images/ceges-logok/IMG_5529.webp" alt="KPMG" class="partner-logo" style="height:54px">
-        <img src="images/ceges-logok/IMG_5530.jpeg" alt="DS Smith" class="partner-logo" style="height:64px">
-        <img src="images/ceges-logok/IMG_5531.png" alt="Brands and More Hungary" class="partner-logo" style="height:54px">
-        <img src="images/ceges-logok/IMG_5532.png" alt="TERRA" class="partner-logo" style="height:48px">
-        <img src="images/ceges-logok/IMG_5533.png" alt="Younic" class="partner-logo" style="height:58px">
-        <img src="images/ceges-logok/IMG_5534.png" alt="Complet Party Service" class="partner-logo" style="height:64px">
-        <img src="images/ceges-logok/IMG_5535.png" alt="Pallér Csarnok" class="partner-logo" style="height:64px">
-        <img src="images/ceges-logok/STK-20260622-WA0000.webp" alt="Corvina" class="partner-logo" style="height:64px">
-        <img src="images/ceges-logok/IMG-20260622-WA0001.jpg" alt="Klanzo Higiénia Kft." class="partner-logo" style="height:64px">
-      </div>
+      <div class="partner-logos" id="partnerLogos"></div>
     </div>
   </div>
 
@@ -634,9 +619,9 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
         </div>
         <div class="r">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:8px;overflow:hidden">
-            <img src="images/pizza-oven2.jpg" alt="Pizza kemencéből" style="width:100%;height:100%;object-fit:cover;grid-column:1/3"/>
-            <img src="images/proud-chef.jpg" alt="Sipőcz Olivér – büszke chef" style="width:100%;height:100%;object-fit:cover"/>
-            <img src="images/pizza-chef2.jpg" alt="Olivér a rendezvényen" style="width:100%;height:100%;object-fit:cover"/>
+            <img src="content/oldal/pizza-oven2.jpg" alt="Pizza kemencéből" style="width:100%;height:100%;object-fit:cover;grid-column:1/3"/>
+            <img src="content/oldal/proud-chef.jpg" alt="Sipőcz Olivér – büszke chef" style="width:100%;height:100%;object-fit:cover"/>
+            <img src="content/oldal/pizza-chef2.jpg" alt="Olivér a rendezvényen" style="width:100%;height:100%;object-fit:cover"/>
           </div>
         </div>
       </div>
@@ -776,53 +761,7 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   </div>
   <div style="background:var(--green);padding:2rem 2rem 4rem">
     <div style="max-width:1100px;margin:0 auto">
-      <div class="gallery">
-        <!-- Pizza fotók – jó minőségűek elöl -->
-        <div class="g-item r"><img src="images/pizza-hero.jpg" alt="Pizza"/></div>
-        <div class="g-item r d1"><img src="images/pizza2.jpg" alt="Pizza"/></div>
-        <div class="g-item r d2"><img src="images/pizza3.jpg" alt="Pizza"/></div>
-        <div class="g-item r"><img src="images/pizza4.jpg" alt="Pizza"/></div>
-        <div class="g-item r d1"><img src="images/pizza5.jpg" alt="Pizza"/></div>
-        <div class="g-item r"><img src="images/pizza7.jpg" alt="Pizza"/></div>
-        <div class="g-item r d1"><img src="images/pizza8.jpg" alt="Pizza"/></div>
-        <div class="g-item r d2"><img src="images/pizza9.jpg" alt="Pizza"/></div>
-        <div class="g-item r"><img src="images/pizza10.jpg" alt="Pizza"/></div>
-        <div class="g-item r d1"><img src="images/pizza11.png" alt="Pizza"/></div>
-        <div class="g-item r d2"><img src="images/pizza-oven.jpg" alt="Pizza kemence"/></div>
-        <div class="g-item r"><img src="images/pizza-oven2.jpg" alt="Pizza kemencéből"/></div>
-        <div class="g-item r d1"><img src="images/chef-kitchen.jpg" alt="Oliver a konyhában"/></div>
-        <div class="g-item r d2"><img src="images/proud-chef.jpg" alt="Oliver"/></div>
-        <div class="g-item r"><img src="images/pizza-chef1.jpg" alt="Pizza chef"/></div>
-        <div class="g-item r d1"><img src="images/pizza-chef2.jpg" alt="Pizza chef"/></div>
-        <!-- Gyengébb minőségűek a végén -->
-        <div class="g-item r d2"><img src="images/pizza-margherita.jpg" alt="Margherita pizza"/></div>
-        <div class="g-item r"><img src="images/pizza-truffle.jpg" alt="Szarvasgomba pizza"/></div>
-        <!-- Új rendezvényfotók és videó -->
-        <div class="g-item r tall"><img src="images/WhatsApp Image 2026-06-22 at 13.57.58.jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1 wide"><img src="images/WhatsApp Image 2026-06-22 at 13.58.04.jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d2 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.06 (1).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r"><img src="images/WhatsApp Image 2026-06-22 at 13.58.06 (2).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.06.jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d2"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (1).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (2).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (3).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d2 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (4).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (5).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (6).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d2 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (7).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07 (8).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1"><img src="images/WhatsApp Image 2026-06-22 at 13.58.07.jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d2"><img src="images/WhatsApp Image 2026-06-22 at 13.58.08 (1).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r wide"><img src="images/WhatsApp Image 2026-06-22 at 13.58.08 (2).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1 tall"><img src="images/WhatsApp Image 2026-06-22 at 13.58.08 (3).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d2"><img src="images/WhatsApp Image 2026-06-22 at 13.58.08 (4).jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r"><img src="images/WhatsApp Image 2026-06-22 at 13.58.08.jpeg" alt="Rendezvényfotó"/></div>
-        <div class="g-item r d1 wide">
-          <video controls muted playsinline preload="metadata">
-            <source src="images/WhatsApp Video 2026-06-22 at 13.58.02.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+      <div class="gallery" id="galleryGrid"></div>
     </div>
     <div style="text-align:center;padding:3rem 2rem 0">
       <a class="btn btn-red r" onclick="go('szolg')">Ajánlatot kérek</a>
@@ -1085,9 +1024,50 @@ footer{background:var(--green3);color:rgba(240,235,224,.6);padding:3rem 2rem}
   </div>
 </footer>
 
+<script src="content/gallery-data.js"></script>
+<script src="content/logos-data.js"></script>
+<script src="content/site-data.js"></script>
 <script>
 // ── NAV ──
 let _skipHistory=false
+function escAttr(value){
+  return String(value||'').replace(/[&<>"']/g,ch=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[ch]))
+}
+function renderManagedContent(){
+  const gallery=document.getElementById('galleryGrid')
+  if(gallery&&Array.isArray(window.OLIVERS_GALLERY_ITEMS)){
+    gallery.innerHTML=window.OLIVERS_GALLERY_ITEMS.map(item=>{
+      const cls=escAttr(['g-item','r',item.className||''].filter(Boolean).join(' '))
+      const src=escAttr(item.src)
+      if(item.type==='video'){
+        return `<div class="${cls}"><video controls muted playsinline preload="metadata"><source src="${src}" type="${escAttr(item.mime||'video/mp4')}"></video></div>`
+      }
+      return `<div class="${cls}"><img src="${src}" alt="${escAttr(item.alt||'Galéria kép')}"/></div>`
+    }).join('')
+  }
+
+  const heroVideo=document.getElementById('heroVideo')
+  const heroSrc=window.OLIVERS_SITE&&window.OLIVERS_SITE.heroVideo
+  if(heroVideo&&heroSrc){
+    const source=document.createElement('source')
+    source.src=heroSrc.src
+    source.type=heroSrc.mime||'video/mp4'
+    heroVideo.appendChild(source)
+    heroVideo.load()
+    const played=heroVideo.play()
+    if(played&&played.catch)played.catch(()=>{})
+  }
+
+  const logos=document.getElementById('partnerLogos')
+  if(logos&&Array.isArray(window.OLIVERS_LOGOS)){
+    logos.innerHTML=window.OLIVERS_LOGOS.map(logo=>
+      `<img src="${escAttr(logo.src)}" alt="${escAttr(logo.alt||'Partner logó')}" class="partner-logo" style="height:${Number(logo.height)||64}px">`
+    ).join('')
+  }
+}
+renderManagedContent()
 function go(p){
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'))
   document.querySelectorAll('[data-p]').forEach(a=>a.classList.remove('active'))
