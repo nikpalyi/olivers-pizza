@@ -60,7 +60,8 @@ const logoNames = {
   '07-complet-party-service.png': 'Complet Party Service',
   '08-paller-csarnok.png': 'Pallér Csarnok',
   '09-corvina.webp': 'Corvina',
-  '10-klanzo-higienia.jpg': 'Klanzo Higiénia Kft.'
+  '10-klanzo-higienia.jpg': 'Klanzo Higiénia Kft.',
+  '11-jcdecaux.png': 'JCDecaux'
 };
 
 // Logo fajlnev -> magassag pixelben. Ha nincs megadva, a script a kep aranyabol szamolja.
@@ -74,7 +75,8 @@ const logoHeights = {
   '07-complet-party-service.png': 64,
   '08-paller-csarnok.png': 64,
   '09-corvina.webp': 64,
-  '10-klanzo-higienia.jpg': 64
+  '10-klanzo-higienia.jpg': 64,
+  '11-jcdecaux.png': 48
 };
 
 function ensureDir(dir) {

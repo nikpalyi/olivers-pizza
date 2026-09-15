@@ -48,5 +48,10 @@ window.OLIVERS_LOGOS = [
     "src": "content/uploads/logos/10-klanzo-higienia.jpg",
     "alt": "Klanzo Higiénia Kft.",
     "height": 64
+  },
+  {
+    "src": "content/uploads/logos/11-jcdecaux.png",
+    "alt": "JCDecaux",
+    "height": 48
   }
 ];

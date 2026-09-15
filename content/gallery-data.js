@@ -355,81 +355,75 @@ window.OLIVERS_GALLERY_ITEMS = [
   },
   {
     "type": "image",
-    "src": "content/uploads/images/pizza-61.png",
-    "alt": "Rendezvényfotó",
-    "className": "d2 wide"
-  },
-  {
-    "type": "image",
     "src": "content/uploads/images/pizza-62.jpg",
-    "alt": "Rendezvényfotó",
-    "className": "tall"
-  },
-  {
-    "type": "image",
-    "src": "content/uploads/images/pizza-63.jpg",
-    "alt": "Rendezvényfotó",
-    "className": "d1 tall"
-  },
-  {
-    "type": "image",
-    "src": "content/uploads/images/pizza-64.jpg",
     "alt": "Rendezvényfotó",
     "className": "d2 tall"
   },
   {
     "type": "image",
-    "src": "content/uploads/images/pizza-65.jpg",
+    "src": "content/uploads/images/pizza-63.jpg",
     "alt": "Rendezvényfotó",
     "className": "tall"
+  },
+  {
+    "type": "image",
+    "src": "content/uploads/images/pizza-64.jpg",
+    "alt": "Rendezvényfotó",
+    "className": "d1 tall"
+  },
+  {
+    "type": "image",
+    "src": "content/uploads/images/pizza-65.jpg",
+    "alt": "Rendezvényfotó",
+    "className": "d2 tall"
   },
   {
     "type": "video",
     "src": "content/uploads/videos/pizza-video-01.mp4",
     "alt": "Rendezvényvideó",
     "mime": "video/mp4",
-    "className": "d1 wide"
+    "className": "wide"
   },
   {
     "type": "image",
     "src": "content/oldal/pizza-hero.jpg",
     "alt": "Pizza",
-    "className": "d2"
+    "className": "d1"
   },
   {
     "type": "image",
     "src": "content/oldal/pizza2.jpg",
     "alt": "Pizza",
-    "className": "tall"
+    "className": "d2 tall"
   },
   {
     "type": "image",
     "src": "content/oldal/pizza3.jpg",
     "alt": "Pizza",
-    "className": "d1 tall"
+    "className": "tall"
   },
   {
     "type": "image",
     "src": "content/oldal/pizza-oven2.jpg",
     "alt": "Pizza kemencéből",
-    "className": "d2"
+    "className": "d1"
   },
   {
     "type": "image",
     "src": "content/oldal/chef-kitchen.jpg",
     "alt": "Oliver a konyhában",
-    "className": "tall"
+    "className": "d2 tall"
   },
   {
     "type": "image",
     "src": "content/oldal/proud-chef.jpg",
     "alt": "Oliver",
-    "className": "d1 tall"
+    "className": "tall"
   },
   {
     "type": "image",
     "src": "content/oldal/pizza-chef2.jpg",
     "alt": "Pizza chef",
-    "className": "d2"
+    "className": "d1"
   }
 ];

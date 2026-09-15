@@ -99,8 +99,8 @@ npm run frissit
 Frissítés után ilyesmit kell látnod:
 
 ```text
-Galéria frissítve: 72 elem (65 feltöltött, elöl).
-Logók frissítve: 10 elem.
+Galéria frissítve: 71 elem (64 feltöltött, elöl).
+Logók frissítve: 11 elem.
 Fővideó: content/uploads/fovideo/animated-logo.mp4
 ```
 
